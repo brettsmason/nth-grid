@@ -1,0 +1,69 @@
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+  }
+  
+@function grid-item-size($size: 1) {
+    // Parsing percents, decimals, n of n and number counts
+    @if type-of($size) == 'number' {
+        @if unit($size) == '%' {
+            $size: $size;
+        }
+        @else if $size < 1 {
+            $size: percentage($size);
+        }
+        @else {
+            $size: percentage(1 / $size);
+        }
+    }
+    // Anything else is incorrect
+    @else {
+        @error 'Wrong syntax for grid-item-size().';
+    }
+
+    @return $size;
+}
+  
+  
+@mixin grid(
+    $layout: 3,
+    $repeat: true,
+    $gutter: 1rem,
+    $selector: '.grid-item'
+) {
+    display: flex;
+    flex-wrap: wrap;
+
+    @if type-of($layout) == 'number' {
+        #{$selector} {
+        width: grid-item-size($layout);
+        }
+    }
+    @else if type-of($layout) == 'list' {
+        // Set total to 0
+        $total: 0;
+
+        @each $value in $layout {
+        // Add up total of supplied values
+        $total: $total + $value;
+        }
+
+        // Get the length of the list for calculations.
+        $length: length($layout);
+
+        @each $item in $layout {
+            $i: index($layout, $item);
+            $width: percentage($item / $total);
+
+            // Margin to apply. Set to 0 for end of row.
+            $margin: if($i == $length, 0, $gutter);
+
+            // Calculation for the calc() gutter subtraction
+            $calc-gutter: $gutter / $length  * ($length - 1);
+
+            #{$selector}:nth-child(#{$length}n + #{$i}) {
+                width: calc(#{$width} - #{$calc-gutter});
+                margin-right: $margin $i;
+            }
+        }
+    }
+}
