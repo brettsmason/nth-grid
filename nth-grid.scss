@@ -1,8 +1,8 @@
 @function strip-unit($num) {
     @return $num / ($num * 0 + 1);
-  }
+}
   
-@function grid-item-size($size: 1) {
+@function grid-item-size($size: 1, $break: auto) {
     // Parsing percents, decimals, n of n and number counts
     @if type-of($size) == 'number' {
         @if unit($size) == '%' {
@@ -34,24 +34,36 @@
     flex-wrap: wrap;
 
     @if type-of($layout) == 'number' {
-        #{$selector} {
-        width: grid-item-size($layout);
+        $width: percentage(1 / $layout);
+
+        // Calculation for the calc() gutter subtraction
+        $calc-gutter: $gutter / $layout  * ($layout - 1);
+        
+        @for $i from 1 through $layout {
+
+            // Margin to apply. Set to 0 for end of row.
+            $margin: if($i == $layout, 0, $gutter);
+
+            #{$selector}:nth-child(#{$layout}n + #{$i}) {
+                width: calc(#{$width} - #{$calc-gutter});
+                margin-right: $margin;
+            }
         }
     }
     @else if type-of($layout) == 'list' {
-        // Set total to 0
+        // Zero the total
         $total: 0;
 
-        @each $value in $layout {
         // Add up total of supplied values
-        $total: $total + $value;
+        @each $value in $layout {
+            $total: $total + $value;
         }
 
         // Get the length of the list for calculations.
         $length: length($layout);
 
-        @each $item in $layout {
-            $i: index($layout, $item);
+        @for $i from 1 through $length {
+            $item: nth($layout, $i);
             $width: percentage($item / $total);
 
             // Margin to apply. Set to 0 for end of row.
@@ -62,7 +74,7 @@
 
             #{$selector}:nth-child(#{$length}n + #{$i}) {
                 width: calc(#{$width} - #{$calc-gutter});
-                margin-right: $margin $i;
+                margin-right: $margin;
             }
         }
     }
