@@ -34,7 +34,7 @@
 
     // Add up total of supplied values
     @each $value in $layout {
-        $total: $total + $value;
+      $total: $total + $value;
     }
 
     // Get the length of the list for calculations.
