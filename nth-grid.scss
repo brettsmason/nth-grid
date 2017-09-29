@@ -23,7 +23,7 @@
       $margin: if($i == $layout, 0, $gutter);
 
       #{$selector}:nth-child(#{$layout}n + #{$i}) {
-        #{$measure}: calc(#{$width} - #{$calc-gutter});
+        #{$measure}: calc(#{$size} - #{$calc-gutter});
         margin-#{$position}: $margin;
       }
     }
