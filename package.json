@@ -1,0 +1,22 @@
+{
+  "name": "nth-grid",
+  "version": "1.0.0",
+  "description": "A lightweight, semantic grid mixin library for creating beautiful horizontal and vertical grids",
+  "main": "nth-grid.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://brettsmason@bitbucket.org/brettsmason/nth-grid.git"
+  },
+  "keywords": [
+    "grid",
+    "layout",
+    "sass",
+    "scss",
+    "semantic",
+    "grid",
+    "framework"
+  ],
+  "author": "Brett Mason",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/brettsmason/nth-grid#readme"
+}
