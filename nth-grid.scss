@@ -56,4 +56,35 @@
       }
     }
   }
+  @else if type-of($layout) == 'map' {
+    $map-values: map-values($layout);
+    $map-total: length($map-values);
+
+    @each $row, $list in $layout {
+      // Get the length of the list for calculations.
+      $length: length($list);
+      $total: 0;
+
+      // Add up total of supplied values
+      @each $value in $list {
+        $total: $total + $value;
+      }
+
+      @for $i from 1 through $length {
+        $item: nth($list, $i);
+        $size: percentage($item / $total);
+
+        // Margin to apply. Set to 0 for end of row.
+        $margin: if($i == $length, 0, $gutter);
+
+        // Calculation for the calc() gutter subtraction
+        $calc-gutter: $gutter / $length  * ($length - 1);
+  
+        #{$selector}:nth-child(#{$map-total}n + #{$i}) {
+          #{$measure}: calc(#{$size} - #{$calc-gutter});
+          margin-#{$position}: $margin;
+        }
+      }
+    }
+  }
 }
