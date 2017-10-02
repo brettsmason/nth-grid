@@ -1,0 +1,10 @@
+/// Simple function that calculates the width of the gutter value used in the calc() size for a cell.
+///
+/// @param {Number}      $gutter - The gutter size.
+/// @param {String|List} $layout - The layout passed the the grid mixin.
+///
+/// @return {List}
+///
+@function gutter-calc($gutter, $layout) {
+    @return $gutter / $layout  * ($layout - 1);
+}

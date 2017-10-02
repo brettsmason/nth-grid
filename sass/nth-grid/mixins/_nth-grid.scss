@@ -16,7 +16,7 @@
     $size: percentage(1 / $layout);
 
     // Calculation for the calc() gutter subtraction
-    $calc-gutter: $gutter / $layout  * ($layout - 1);
+    $calc-gutter: gutter-calc($gutter, $layout);
 
     @for $i from 1 through $layout {
       // Margin to apply. Set to 0 for end of row/column.
@@ -43,7 +43,7 @@
       $margin: if($i == $length, 0, $gutter);
 
       // Calculation for the calc() gutter subtraction
-      $calc-gutter: $gutter / $length  * ($length - 1);
+      $calc-gutter: gutter-calc($gutter, $length);
 
       #{$selector}:nth-child(#{$length}n + #{$i}) {
         #{$measure}: calc(#{$size} - #{$calc-gutter});
@@ -76,7 +76,7 @@
         $margin: if($i == $length, 0, $gutter);
 
         // Calculation for the calc() gutter subtraction
-        $calc-gutter: $gutter / $length  * ($length - 1);
+        $calc-gutter: gutter-calc($gutter, $length);
 
         #{$selector}:nth-child(#{$map-total}n + #{$global-index}) {
           #{$measure}: calc(#{$size} - #{$calc-gutter});
