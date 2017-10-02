@@ -1,99 +1,15 @@
-@mixin grid(
-  $layout: 3,
-  $gutter: 1rem,
-  $selector: '>',
-  $vertical: false
-) {
-  $direction: if($vertical, column, row);
-  $wrap: if($vertical, nowrap, wrap);
-  $measure: if($vertical, height, width);
-  $position: if($vertical, bottom, right);
+@charset 'UTF-8';
+// nth grid 1.0.0
+// http://website here
+// Copyright 2017 Brett Mason.
+// MIT License
 
-  display: flex;
-  flex-flow: $direction $wrap;
+// Settings
+@import 'nth-grid/settings/nth-settings';
 
-  @if type-of($layout) == 'number' {
-    $size: percentage(1 / $layout);
+// Functions
+@import 'nth-grid/functions/nth-cell-repeat';
+@import 'nth-grid/functions/nth-cell-size';
 
-    // Calculation for the calc() gutter subtraction
-    $calc-gutter: $gutter / $layout  * ($layout - 1);
-
-    @for $i from 1 through $layout {
-      // Margin to apply. Set to 0 for end of row/column.
-      $margin: if($i == $layout, 0, $gutter);
-
-      #{$selector}:nth-child(#{$layout}n + #{$i}) {
-        #{$measure}: calc(#{$size} - #{$calc-gutter});
-        margin-#{$position}: $margin;
-      }
-    }
-  }
-  @else if type-of($layout) == 'list' {
-    // Zero the total
-    $total: 0;
-
-    // Add up total of supplied values
-    @each $value in $layout {
-      $total: $total + $value;
-    }
-
-    // Get the length of the list for calculations.
-    $length: length($layout);
-
-    @for $i from 1 through $length {
-      $item: nth($layout, $i);
-      $size: percentage($item / $total);
-
-      // Margin to apply. Set to 0 for end of row.
-      $margin: if($i == $length, 0, $gutter);
-
-      // Calculation for the calc() gutter subtraction
-      $calc-gutter: $gutter / $length  * ($length - 1);
-
-      #{$selector}:nth-child(#{$length}n + #{$i}) {
-        #{$measure}: calc(#{$size} - #{$calc-gutter});
-        margin-#{$position}: $margin;
-      }
-    }
-  }
-  @else if type-of($layout) == 'map' {
-    $map-values: map-values($layout);
-    $map-total: 0;
-    $global-index: 1;
-
-    @each $list in $map-values {
-      $map-total: $map-total + length($list);
-    }
-
-    @each $row, $list in $layout {
-      // Get the length of the list for calculations.
-      $length: length($list);
-      $total: 0;
-
-      // Add up total of supplied values in the row
-      @each $value in $list {
-        $total: $total + $value;
-      }
-
-      // Loop over each item in the row
-      @for $i from 1 through $length {
-        $item: nth($list, $i);
-        $size: percentage($item / $total);
-
-        // Margin to apply. Set to 0 for end of row
-        $margin: if($i == $length, 0, $gutter);
-
-        // Calculation for the calc() gutter subtraction
-        $calc-gutter: $gutter / $length  * ($length - 1);
-  
-        #{$selector}:nth-child(#{$map-total}n + #{$global-index}) {
-          #{$measure}: calc(#{$size} - #{$calc-gutter});
-          margin-#{$position}: $margin;
-        }
-
-        // Increase our global index by 1 each loop
-        $global-index: $global-index + 1;
-      }
-    }
-  }
-}
+// Mixins
+@import 'nth-grid/mixins/nth-grid';
