@@ -1,0 +1,24 @@
+@mixin -is-grid-number(
+    $layout,
+    $gutter,
+    $selector,
+    $vertical
+) {
+  $measure: if($vertical, height, width);
+  $position: if($vertical, bottom, right);
+
+  $size: percentage(1 / $layout);
+
+  // Calculation for the calc() gutter subtraction
+  $calc-gutter: gutter-calc($gutter, $layout);
+
+  @for $i from 1 through $layout {
+    // Margin to apply. Set to 0 for end of row/column.
+    $margin: if($i == $layout, 0, $gutter);
+
+    #{$selector}:nth-child(#{$layout}n + #{$i}) {
+      #{$measure}: calc(#{$size} - #{$calc-gutter});
+      margin-#{$position}: $margin;
+    }
+  }
+}

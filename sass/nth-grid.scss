@@ -15,4 +15,7 @@
 @import 'nth-grid/functions/nth-cell-size';
 
 // Mixins
+@import 'nth-grid/mixins/nth-is-grid-number';
+@import 'nth-grid/mixins/nth-is-grid-list';
+@import 'nth-grid/mixins/nth-is-grid-map';
 @import 'nth-grid/mixins/nth-grid';

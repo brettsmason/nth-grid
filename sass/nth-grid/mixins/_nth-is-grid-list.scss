@@ -1,0 +1,31 @@
+@mixin -is-grid-list(
+    $layout,
+    $gutter,
+    $selector,
+    $vertical
+) {
+  $measure: if($vertical, height, width);
+  $position: if($vertical, bottom, right);
+
+  // Add up total of supplied values
+  $total: sum($layout);
+
+  // Get the length of the list for calculations.
+  $length: length($layout);
+
+  @for $i from 1 through $length {
+    $item: nth($layout, $i);
+    $size: percentage($item / $total);
+
+    // Margin to apply. Set to 0 for end of row.
+    $margin: if($i == $length, 0, $gutter);
+
+    // Calculation for the calc() gutter subtraction
+    $calc-gutter: gutter-calc($gutter, $length);
+
+    #{$selector}:nth-child(#{$length}n + #{$i}) {
+      #{$measure}: calc(#{$size} - #{$calc-gutter});
+      margin-#{$position}: $margin;
+    }
+  }
+}
