@@ -1,0 +1,17 @@
+@function -nth-cell-size($values, $gutter) {
+    $static: ();
+    $fr: ();
+  
+    @each $value in $values {
+        @if unitless($value) {
+            $fr: append($fr, $value);
+        } @else {
+            $static: append($static, #{'-'});
+            $static: append($static, $value);
+        }
+    }
+
+    $fraction: 1 / length($fr);
+
+    @return calc((99.99% #{$static-list}) * #{$fraction} - #{$gutter});
+}
