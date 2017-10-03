@@ -23,7 +23,7 @@
 ///
 /// @return {String}
 ///
-@function -gutter-position($vertical) {
+@function _gutter-position($vertical) {
     $position: if($vertical, bottom, right);
 
     @return $position;

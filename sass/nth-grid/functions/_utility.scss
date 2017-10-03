@@ -1,0 +1,73 @@
+/// Add unitless numbers from a list to form a total.
+/// @link https://hugogiraudel.com/2013/10/09/advanced-sass-list-functions-again/
+///
+/// @param {List}    $list  - A list of values to add up.
+/// @param {Boolean} $force - Enable / disable the removing of units.
+///
+/// @return {Number}
+///
+@function sum($list, $force: false) {
+    $result: 0;
+
+    @each $item in $list {
+        @if type-of($item) == number {
+            @if $force and unit($item) {
+                $item: $item / ($item * 0 + 1);
+            }
+            @if unitless($item) {
+                $result: $result + $item;
+            }
+        }
+    }
+
+    @return $result;
+}
+
+/// Sort a supplied list and return just the values with a unit.
+@function -sort-static($list) {
+    $static: ();
+
+    @each $value in $values {
+        @if not unitless($value) {
+            $static: append($static, $value);
+        }
+    }
+
+    $static: if(length($static) > 0, $static, null);
+
+    @return $static;
+}
+
+/// Sort a supplied list and return just the values without a unit.
+@function -sort-fr($list) {
+    $fr: ();
+
+    @each $value in $values {
+        @if unitless($value) {
+            $fr: append($fr, $value);
+        }
+    }
+
+    $fr: if(length($fr) > 0, $fr, null);
+
+    @return $fr;
+}
+
+/// Repeat a value x number of times.
+/// Mimics the browser function with the same name.
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
+///
+/// @param {Number}      $count - The number of times to repeat the $value.
+/// @param {String|List} $value - The value(s) to repeat.
+///
+/// @return {List}
+///
+@function repeat($count, $value) {
+    $list: ();
+
+@for $i from 1 through $count {
+    $list: append($list, $value, space);
+}
+
+    @return $list;
+}

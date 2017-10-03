@@ -6,16 +6,15 @@
  */
 
 // Settings
-@import 'nth-grid/settings/nth-settings';
+@import 'nth-grid/settings/settings';
 
 // Functions
-@import 'nth-grid/functions/nth-sum';
+@import 'nth-grid/functions/utility';
 @import 'nth-grid/functions/gutter';
-@import 'nth-grid/functions/nth-cell-repeat';
-@import 'nth-grid/functions/nth-cell-size';
+@import 'nth-grid/functions/sizing';
 
 // Mixins
-@import 'nth-grid/mixins/nth-is-grid-number';
-@import 'nth-grid/mixins/nth-is-grid-list';
-@import 'nth-grid/mixins/nth-is-grid-map';
-@import 'nth-grid/mixins/nth-grid';
+@import 'nth-grid/mixins/is-grid-number';
+@import 'nth-grid/mixins/is-grid-list';
+@import 'nth-grid/mixins/is-grid-map';
+@import 'nth-grid/mixins/grid';
