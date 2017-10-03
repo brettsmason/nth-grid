@@ -5,8 +5,16 @@
 ///
 /// @return {List}
 ///
-@function -gutter-calc($gutter, $layout) {
-    @return $gutter / $layout  * ($layout - 1);
+@function _gutter-calc($gutter, $layout) {
+    $length: 0;
+
+    @if type-of($layout) == 'list' {
+        $length: length($layout);
+    } @else {
+        $length: $layout;
+    }
+
+    @return ($gutter / $length) * ($length - 1);
 }
 
 /// Sets the gutter position depending on grid axis.
