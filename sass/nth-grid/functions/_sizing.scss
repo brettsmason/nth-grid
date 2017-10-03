@@ -3,7 +3,7 @@
     $fr: -sort-fractional($values);
 
     $fraction: if(length($fr) > 0, 1 / length($fr), 1);
-    $gutter: if($gutter, ' - #{-gutter-calc($gutter, $values)}', null);
+    $gutter: if($gutter, ' - #{-calc-gutter($gutter, $values)}', null);
     $static: if(length($static) > 0, #{$static}, null);
     $percentage: if($fr, (99.99% * 1 / length($fr)), 100%);
 

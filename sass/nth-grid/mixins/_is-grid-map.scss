@@ -20,7 +20,7 @@
     $length: length($list);
 
     // Add up total of supplied values
-    $total: sum($layout);
+    $total: sum($list);
 
     // Loop over each item in the row
     @for $i from 1 through $length {
@@ -31,7 +31,7 @@
       $margin: if($i == $length, 0, $gutter);
 
       // Calculation for the calc() gutter subtraction
-      $calc-gutter: -gutter-calc($gutter, $length);
+      $calc-gutter: -calc-gutter($gutter, $length);
 
       #{$selector}:nth-child(#{$map-total}n + #{$global-index}) {
         #{$measure}: calc(#{$size} - #{$calc-gutter});

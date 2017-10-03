@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth grid testing</title>
+    <link rel="stylesheet" href="css/demo.css">
+  </head>
+</html>
+<body>
+
+<h1>Nth grid demos and testing</h1>
+
+<h2>Grid with single value</h2>
+<pre>@include grid(4, 1rem)</pre>
+<div class="grid-single">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid with list</h2>
+<pre>@include grid(1 2 3 4, 1rem)</pre>
+<div class="grid-list">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid with map</h2>
+<pre>
+  $grid: (
+      1: 1,
+      2: 3 1 2 4,
+      3: 5 3,
+      4: 1 2 1
+  );
+  @include grid($grid, 1rem)
+</pre>
+<div class="grid-map">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid with list (mixed values)</h2>
+<pre>@include grid(1 150px 3 10%, 1rem)</pre>
+<div class="grid-list-mixed">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+</body>
+</html>
+

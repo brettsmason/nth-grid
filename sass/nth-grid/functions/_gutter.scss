@@ -5,7 +5,7 @@
 ///
 /// @return {List}
 ///
-@function -gutter-calc($gutter, $layout) {
+@function -calc-gutter($gutter, $layout) {
     $length: 0;
 
     @if type-of($layout) == 'list' {
