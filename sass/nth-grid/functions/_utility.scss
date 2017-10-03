@@ -43,11 +43,15 @@
 }
 
 /// Sort a supplied list and return just the values with a unit.
-@function -sort-static($list) {
+@function -sort-static($list, $separator: null) {
     $static: ();
 
     @each $value in $list {
         @if not unitless($value) {
+            @if $separator {
+                $static: append($static, #{$separator});
+            }
+
             $static: append($static, $value);
         }
     }

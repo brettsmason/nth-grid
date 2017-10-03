@@ -14,17 +14,12 @@
   $length: length($layout);
 
   @for $i from 1 through $length {
-    $item: nth($layout, $i);
-    $size: percentage($item / $total);
 
     // Margin to apply. Set to 0 for end of row.
     $margin: if($i == $length, 0, $gutter);
 
-    // Calculation for the calc() gutter subtraction
-    $calc-gutter: -calc-gutter($gutter, $length);
-
     #{$selector}:nth-child(#{$length}n + #{$i}) {
-      #{$measure}: calc(#{$size} - #{$calc-gutter});
+      #{$measure}: -cell-size($layout, $i, $gutter);
       margin-#{$position}: $margin;
     }
   }

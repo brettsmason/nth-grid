@@ -11,19 +11,19 @@
 
 /// New sizing function. Still to do.
 @function -cell-size($layout, $index, $gutter) {
-    $total: sum($layout);
-    $length: length($layout);
-    $item: nth($layout, $index);
-    $static: -sort-static($layout);
-    $fr: -sort-fractional($layout);
-    $size: 0;
-  
-    @if unitless($item) {
-      $size: percentage($item / $total);
-    }
-    @else {
-      $size: $item - $fr;
-    }
+  $total: sum($layout);
+  $length: length($layout);
+  $item: nth($layout, $index);
+  $static: -sort-static($layout, '-');
+  $fr: -sort-fractional($layout);
+  $size: 0;
 
-    @return $size;
+  @if not unitless($item) {
+    $size: calc(#{$item} - #{$gutter});
   }
+  @else {
+    $size: calc(#{percentage($item / $total)} #{$static} - #{$gutter});
+  }
+
+  @return $size;
+}

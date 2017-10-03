@@ -47,5 +47,5 @@ pre {
 }
 
 .grid-4 {
-    // @include grid(1 200px 20vw, 1rem);
+    @include grid(1 200px 20vw, 1rem);
 }
