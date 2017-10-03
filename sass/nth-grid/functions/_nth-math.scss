@@ -16,12 +16,11 @@
 
     @each $value in $values {
         @if not unitless($value) {
-            $static: append($static, #{'-'});
             $static: append($static, $value);
-        } @else {
-            $static: null;
         }
     }
+
+    $static: if(length($static) > 0, $static, null);
 
     @return $static;
 }
@@ -33,10 +32,10 @@
     @each $value in $values {
         @if unitless($value) {
             $fr: append($fr, $value);
-        } @else {
-            $fr: null;
         }
     }
+
+    $fr: if(length($fr) > 0, $fr, null);
 
     @return $fr;
 }
