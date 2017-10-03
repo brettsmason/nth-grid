@@ -11,12 +11,12 @@
 }
 
 /// Sort a supplied list and return just the values with a unit.
-@function -sort-static($values) {
+@function -sort-static($list, $separator: null) {
     $static: ();
 
     @each $value in $values {
         @if not unitless($value) {
-            $static: append($static, $value);
+            $static: if($separator, append($static, #{$separator} $value), append($static, $value));
         }
     }
 
@@ -26,12 +26,12 @@
 }
 
 /// Sort a supplied list and return just the values without a unit.
-@function -sort-fr($values) {
+@function -sort-fr($list, $separator: null) {
     $fr: ();
 
     @each $value in $values {
         @if unitless($value) {
-            $fr: append($fr, $value);
+            $fr: if($separator, append($fr, #{$separator} $fr), append($fr, $value));
         }
     }
 
