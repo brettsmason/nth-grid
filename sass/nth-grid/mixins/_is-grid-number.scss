@@ -10,7 +10,7 @@
   $size: percentage(1 / $layout);
 
   // Calculation for the calc() gutter subtraction
-  $calc-gutter: gutter-calc($gutter, $layout);
+  $calc-gutter: -gutter-calc($gutter, $layout);
 
   @for $i from 1 through $layout {
     // Margin to apply. Set to 0 for end of row/column.

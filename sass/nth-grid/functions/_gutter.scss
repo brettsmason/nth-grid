@@ -5,7 +5,7 @@
 ///
 /// @return {List}
 ///
-@function _gutter-calc($gutter, $layout) {
+@function -gutter-calc($gutter, $layout) {
     $length: 0;
 
     @if type-of($layout) == 'list' {
@@ -23,7 +23,7 @@
 ///
 /// @return {String}
 ///
-@function _gutter-position($vertical) {
+@function -gutter-position($vertical) {
     $position: if($vertical, bottom, right);
 
     @return $position;

@@ -31,7 +31,7 @@
       $margin: if($i == $length, 0, $gutter);
 
       // Calculation for the calc() gutter subtraction
-      $calc-gutter: gutter-calc($gutter, $length);
+      $calc-gutter: -gutter-calc($gutter, $length);
 
       #{$selector}:nth-child(#{$map-total}n + #{$global-index}) {
         #{$measure}: calc(#{$size} - #{$calc-gutter});

@@ -23,36 +23,6 @@
     @return $result;
 }
 
-/// Sort a supplied list and return just the values with a unit.
-@function -sort-static($list) {
-    $static: ();
-
-    @each $value in $values {
-        @if not unitless($value) {
-            $static: append($static, $value);
-        }
-    }
-
-    $static: if(length($static) > 0, $static, null);
-
-    @return $static;
-}
-
-/// Sort a supplied list and return just the values without a unit.
-@function -sort-fr($list) {
-    $fr: ();
-
-    @each $value in $values {
-        @if unitless($value) {
-            $fr: append($fr, $value);
-        }
-    }
-
-    $fr: if(length($fr) > 0, $fr, null);
-
-    @return $fr;
-}
-
 /// Repeat a value x number of times.
 /// Mimics the browser function with the same name.
 /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
@@ -70,4 +40,34 @@
 }
 
     @return $list;
+}
+
+/// Sort a supplied list and return just the values with a unit.
+@function -sort-static($list) {
+    $static: ();
+
+    @each $value in $list {
+        @if not unitless($value) {
+            $static: append($static, $value);
+        }
+    }
+
+    $static: if(length($static) > 0, $static, null);
+
+    @return $static;
+}
+
+/// Sort a supplied list and return just the values without a unit.
+@function -sort-fractional($list) {
+    $fr: ();
+
+    @each $value in $list {
+        @if unitless($value) {
+            $fr: append($fr, $value);
+        }
+    }
+
+    $fr: if(length($fr) > 0, $fr, null);
+
+    @return $fr;
 }
