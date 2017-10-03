@@ -11,7 +11,10 @@
         }
     }
 
-    $fraction: 1 / length($fr);
+    $fraction: if(length($fr) > 0, 1 / length($fr), 1);
+    $gutter: if($gutter, ' - #{$gutter}', null);
+    $static: if(length($static) > 0, #{$static}, null);
+    $percentage: if($static, '(99.99% #{$static})', 100%);
 
-    @return calc((99.99% #{$static-list}) * #{$fraction} - #{$gutter});
+    @return calc(#{$percentage} * #{$fraction}#{$gutter});
 }
