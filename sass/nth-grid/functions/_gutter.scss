@@ -1,0 +1,22 @@
+/// Calculates the size of the gutter value used in the calc() calculation for a cell.
+///
+/// @param {Number}      $gutter - The gutter size.
+/// @param {String|List} $layout - The layout passed the the grid mixin.
+///
+/// @return {List}
+///
+@function -gutter-calc($gutter, $layout) {
+    @return $gutter / $layout  * ($layout - 1);
+}
+
+/// Sets the gutter position depending on grid axis.
+///
+/// @param {Boolean} $vertical - Sets the gutter to either the right or bottom.
+///
+/// @return {String}
+///
+@function -gutter-position($vertical) {
+    $position: if($vertical, bottom, right);
+
+    @return $position;
+}

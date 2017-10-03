@@ -5,7 +5,7 @@
     $vertical
 ) {
   $measure: if($vertical, height, width);
-  $position: if($vertical, bottom, right);
+  $position: -gutter-position($vertical);
 
   $size: percentage(1 / $layout);
 

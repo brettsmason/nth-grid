@@ -5,7 +5,7 @@
     $vertical
 ) {
   $measure: if($vertical, height, width);
-  $position: if($vertical, bottom, right);
+  $position: -gutter-position($vertical);
 
   // Add up total of supplied values
   $total: sum($layout);
@@ -21,7 +21,7 @@
     $margin: if($i == $length, 0, $gutter);
 
     // Calculation for the calc() gutter subtraction
-    $calc-gutter: gutter-calc($gutter, $length);
+    $calc-gutter: -gutter-calc($gutter, $length);
 
     #{$selector}:nth-child(#{$length}n + #{$i}) {
       #{$measure}: calc(#{$size} - #{$calc-gutter});

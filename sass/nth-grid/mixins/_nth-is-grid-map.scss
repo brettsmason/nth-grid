@@ -5,7 +5,7 @@
     $vertical
 ) {
   $measure: if($vertical, height, width);
-  $position: if($vertical, bottom, right);
+  $position: -gutter-position($vertical);
 
   $map-values: map-values($layout);
   $map-total: 0;
