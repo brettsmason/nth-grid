@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth grid - single value (vertical)</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+</html>
+<body>
+
+<h1>Nth grid - single value (vertical) testing</h1>
+
+<h2>Grid with single value</h2>
+<pre>@include grid(1, 1rem, $vertical: true)</pre>
+<div class="grid-1 vertical">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid with single value</h2>
+<pre>@include grid(4, 1rem, $vertical: true)</pre>
+<div class="grid-2 vertical">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid with single value</h2>
+<pre>@include grid(3, 0, $vertical: true)</pre>
+<div class="grid-3 vertical">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+</body>
+</html>
+

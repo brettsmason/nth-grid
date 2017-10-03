@@ -27,14 +27,16 @@ function sass() {
       browsers: [ "last 2 versions", "ie >= 10", "ios >= 7" ]
     }))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('dist/css'))
+    .pipe(gulp.dest('dist'))
     .pipe(browser.reload({ stream: true }));
   }
 
 // Start a server with BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    server: 'dist', port: 8000
+    server: 'dist',
+    port: 8000,
+    directory: true
   });
   done();
 }

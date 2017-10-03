@@ -1,0 +1,143 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth grid - map</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+</html>
+<body>
+
+<h1>Nth grid - map</h1>
+
+<h2>Grid - map</h2>
+<pre>
+  $grid-1: (
+    1: 1 5 2,
+    2: 1,
+    3: 1 1
+  );
+  @include grid($grid-1, 1rem);
+</pre>
+<div class="grid-1">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid - map</h2>
+<pre>
+  $grid-2: (
+    1: 1 1 1 1,
+    2: 1 3 1,
+    3: 1
+  );
+  @include grid($grid-2, 1rem);
+</pre>
+<div class="grid-2">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid - map (no gutter)</h2>
+<pre>
+  $grid-3: (
+    1: 1 2 1,
+    2: 1,
+    3: 1 1
+  );
+  @include grid($grid-3, 0);
+</pre>
+<div class="grid-3">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+<h2>Grid - map (mixed units)</h2>
+<pre>
+  $grid-4: (
+    1: 300px 2 1,
+    2: 1,
+    3: 1 20vw 2
+  );
+  @include grid($grid-4, 1rem);
+</pre>
+<div class="grid-4">
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+  <div class="grid-item">Item</div>
+</div>
+
+</body>
+</html>

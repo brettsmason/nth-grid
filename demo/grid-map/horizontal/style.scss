@@ -34,38 +34,38 @@ pre {
 /// Testing begins here.
 ////////////////////////
 
-.grid-single {
-    @include grid(4, 1rem);
+.grid-1 {
+    $grid-1: (
+        1: 1 5 2,
+        2: 1,
+        3: 1 1
+    );
+    @include grid($grid-1, 1rem);
 }
 
-.grid-list {
-    @include grid(1 2 3 4, 1rem);
+.grid-2 {
+    $grid-2: (
+        1: 1 1 1 1,
+        2: 1 3 1,
+        3: 1
+    );
+    @include grid($grid-2, 1rem);
 }
 
-.grid-list-responsive {
-    @include grid(1 3, 1rem);
-
-    @media (min-width: 800px) {
-        @include grid(6 3 1 4, 1rem);
-    }
+.grid-3 {
+    $grid-3: (
+        1: 1 2 1,
+        2: 1,
+        3: 1 1
+    );
+    @include grid($grid-3, 0);
 }
 
-$grid: (
-    1: repeat(12, 1),
-    2: repeat(5, 1),
-    3: repeat(3, 1)
-);
-
-.grid-map {
-    @include grid($grid, 1rem);
-}
-
-.grid-list-mixed {
-    // @include grid(10px 150px 3 340px, 1rem);
-}
-
-$list: 1 200px 3 350px;
-
-.demo {
-    width: -cell-size($list, 2, 1rem);
+.grid-4 {
+    $grid-4: (
+        1: 300px 2 1,
+        2: 1,
+        3: 1 20vw 2
+    );
+    @include grid($grid-4, 1rem);
 }
