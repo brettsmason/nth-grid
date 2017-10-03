@@ -1,15 +1,6 @@
 @function -nth-cell-size($values, $gutter) {
-    $static: ();
-    $fr: ();
-  
-    @each $value in $values {
-        @if unitless($value) {
-            $fr: append($fr, $value);
-        } @else {
-            $static: append($static, #{'-'});
-            $static: append($static, $value);
-        }
-    }
+    $static: -sort-static($values);
+    $fr: -sort-fr($values);
 
     $fraction: if(length($fr) > 0, 1 / length($fr), 1);
     $gutter: if($gutter, ' - #{gutter-calc($gutter, $values)}', null);
@@ -17,4 +8,35 @@
     $percentage: if($static, '(99.99% #{$static})', 100%);
 
     @return calc(#{$percentage} * #{$fraction}#{$gutter});
+}
+
+/// Sort a supplied list and return just the values with a unit.
+@function -sort-static($values) {
+    $static: ();
+
+    @each $value in $values {
+        @if not unitless($value) {
+            $static: append($static, #{'-'});
+            $static: append($static, $value);
+        } @else {
+            $static: null;
+        }
+    }
+
+    @return $static;
+}
+
+/// Sort a supplied list and return just the values without a unit.
+@function -sort-fr($values) {
+    $fr: ();
+
+    @each $value in $values {
+        @if unitless($value) {
+            $fr: append($fr, $value);
+        } @else {
+            $fr: null;
+        }
+    }
+
+    @return $fr;
 }
