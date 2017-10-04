@@ -1,14 +1,3 @@
-@function -nth-cell-size($values, $gutter) {
-    $static: -sort-static($values);
-    $fr: -sort-fractional($values);
-
-    $gutter: if($gutter, ' - #{-calc-gutter($gutter, $values)}', null);
-    $static: if(length($static) > 0, #{$static}, null);
-    $percentage: if($fr, (100% * 1 / length($fr)), 100%);
-
-    @return calc(#{$percentage} #{$gutter});
-}
-
 /// New sizing function. Still to do.
 @function -cell-size($layout, $index, $gutter) {
   $total: sum($layout);
@@ -16,13 +5,14 @@
   $item: nth($layout, $index);
   $static: -sort-static($layout, '-');
   $fr: -sort-fractional($layout);
+  $calc-gutter: -calc-gutter($gutter, $layout);
   $size: 0;
 
   @if not unitless($item) {
-    $size: calc(#{$item} - #{$gutter});
+    $size: calc(#{$item} - #{$calc-gutter});
   }
   @else {
-    $size: calc(#{percentage($item / $total)} #{$static} - #{$gutter});
+    $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
   }
 
   @return $size;
