@@ -49,3 +49,7 @@ pre {
 .grid-4 {
     @include grid(1 200px 20vw, 1rem);
 }
+
+.grid-5 {
+    @include grid(200px 1 100px 2, 1rem);
+}
