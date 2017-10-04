@@ -5,7 +5,7 @@
   $item: nth($layout, $index);
   $static: -sort-static($layout, '-');
   $fr: -sort-fractional($layout);
-  $calc-gutter: -calc-gutter($gutter, $layout);
+  $calc-gutter: if($gutter != 0, -calc-gutter($gutter, $layout), null);
   $size: 0;
 
   // Shrink behaviour
@@ -13,10 +13,18 @@
     $size: auto;
   }
   @else if not unitless($item) {
-    $size: calc(#{$item} - #{$calc-gutter});
-  }
-  @else {
-    $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
+    @if $calc-gutter {
+      $size: calc(#{$item} - #{$calc-gutter});
+    } @else {
+      $size: #{$item};
+    }
+  } @else {
+    @if $calc-gutter {
+      $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
+    }
+    @else {
+      $size: calc(#{percentage($item / $total)} #{$static});
+    }
   }
 
   @return $size;
