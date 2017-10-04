@@ -1,8 +1,15 @@
-/// New sizing function. Still to do.
+/// Work out the required size for the cell.
+///
+/// @param {Number|List} $layout - The single value/list to work out sizing.
+/// @param {Number}      $index  - The position of the list to get the value from.
+/// @param {Number}      $gutter - The gutter value to substract from the size.
+///
+/// @return {String}
+///
 @function -cell-size($layout, $index, $gutter) {
-  $total: sum($layout);
+  $total: if(type-of($layout) == 'list', sum($layout), $layout);
   $length: length($layout);
-  $item: nth($layout, $index);
+  $item: if(type-of($layout) == 'list', nth($layout, $index), 1);
   $static: -sort-static($layout, '-');
   $fr: -sort-fractional($layout);
   $calc-gutter: if($gutter != 0, -calc-gutter($gutter, $layout), null);

@@ -7,17 +7,12 @@
   $measure: if($vertical, height, width);
   $position: -gutter-position($vertical);
 
-  $size: percentage(1 / $layout);
-
-  // Calculation for the calc() gutter subtraction
-  $calc-gutter: -calc-gutter($gutter, $layout);
-
   @for $i from 1 through $layout {
     // Margin to apply. Set to 0 for end of row/column.
     $margin: if($i == $layout, 0, $gutter);
 
     #{$selector}:nth-child(#{$layout}n + #{$i}) {
-      #{$measure}: calc(#{$size} - #{$calc-gutter});
+      #{$measure}: -cell-size($layout, $i, $gutter);
       margin-#{$position}: $margin;
     }
   }
