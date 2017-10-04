@@ -18,7 +18,8 @@
   ],
   "scripts": {
     "start": "gulp",
-    "build": "gulp build --production"
+    "build": "gulp build --production",
+    "test:sass": "mocha test/sass/test_sass.js"
   },
   "devDependencies": {
     "browser-sync": "^2.10.0",
@@ -28,7 +29,9 @@
     "gulp-cli": "^1.2.1",
     "gulp-load-plugins": "^1.1.0",
     "gulp-sass": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-sourcemaps": "^1.6.0",
+    "mocha": "^4.0.0",
+    "sass-true": "^3.0.1"
   },
   "author": "Brett Mason",
   "license": "MIT",
