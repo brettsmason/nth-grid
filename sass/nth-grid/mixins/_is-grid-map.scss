@@ -24,9 +24,6 @@
 
     // Loop over each item in the row
     @for $i from 1 through $length {
-      $item: nth($list, $i);
-      $size: percentage($item / $total);
-
       // Margin to apply. Set to 0 for end of row
       $margin: if($i == $length, 0, $gutter);
 
@@ -34,7 +31,7 @@
       $calc-gutter: -calc-gutter($gutter, $length);
 
       #{$selector}:nth-child(#{$map-total}n + #{$global-index}) {
-        #{$measure}: calc(#{$size} - #{$calc-gutter});
+        #{$measure}: -cell-size($list, $i, $gutter);
         margin-#{$position}: $margin;
       }
 
