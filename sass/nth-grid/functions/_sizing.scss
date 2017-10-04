@@ -8,7 +8,11 @@
   $calc-gutter: -calc-gutter($gutter, $layout);
   $size: 0;
 
-  @if not unitless($item) {
+  // Shrink behaviour
+  @if $item == 0 {
+    $size: auto;
+  }
+  @else if not unitless($item) {
     $size: calc(#{$item} - #{$calc-gutter});
   }
   @else {
