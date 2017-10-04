@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth grid - content/sidebar</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+</html>
+<body>
+
+<div class="page">
+  <div class="header">Header</div>
+  <div class="nav">Navigation</div>
+  <div class="main">
+    <div class="content">
+      This layout was created with these lines of code:
+
+      <pre>
+.page {
+    @include grid(1 1 8 2 1, $vertical: true);
+    height: 100vh;
+}
+
+.main {
+    @include grid(3 1);
+}
+      </pre>
+    </div>
+    <div class="sidebar">Sidebar</div>
+  </div>
+  <div class="footer">Footer</div>
+</div>
+
+</body>
+</html>
