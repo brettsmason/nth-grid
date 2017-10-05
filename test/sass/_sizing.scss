@@ -1,0 +1,25 @@
+@include test-module('Sizing Functions') {
+
+    // Cell Size Tests
+    @include test('-cell-size (single value) [function]') {
+
+        @include assert-equal(-cell-size(3, 1, 1rem), calc(33.33333% - 0.66667rem),
+            'Returns the calc() expression size');
+        
+        @include assert-equal(-cell-size(4, 2, 3rem), calc(25% - 2.25rem),
+            'Returns the calc() expression size');
+
+    }
+
+    // Cell Size Tests
+    @include test('-cell-size (list) [function]') {
+
+        @include assert-equal(-cell-size(2 3 4, 3, 1rem), calc(44.44444% - 0.66667rem),
+            'Returns the calc() expression size');
+        
+        @include assert-equal(-cell-size(4 1, 2, 30px), calc(25% - 2.25rem),
+            'Returns the calc() expression size');
+
+    }
+
+}

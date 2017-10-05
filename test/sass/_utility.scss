@@ -1,0 +1,57 @@
+@include test-module('Utility Functions') {
+
+    // Sum Tests
+    @include test('sum [function]') {
+
+        @include assert-equal(sum(1 2 3 4 5, false), 15, 
+            'Adds up a list of numbers to form a total');
+        
+        @include assert-equal(sum(4 6 5 3, false), 18, 
+            'Adds up a list of numbers to form a total');
+
+        @include assert-equal(sum(20px 1 365px, true), 386, 
+            'Adds up a list of numbers to form a total');
+    }
+
+    // Repeat Tests
+    @include test('repeat [function]') {
+
+        @include assert-equal(repeat(2, 20px), 20px 20px, 
+            'Repeat a value x number of times');
+
+        @include assert-equal(repeat(6, 10px 1), (10px 1) (10px 1) (10px 1) (10px 1) (10px 1) (10px 1), 
+            'Repeat a value x number of times');
+        
+        @include assert-equal(repeat(4, 1 3 5), (1 3 5) (1 3 5) (1 3 5) (1 3 5), 
+            'Repeat a value x number of times');
+    }
+
+    // Sort Static Tests
+    @include test('-sort-static [function]') {
+
+        @include assert-equal(-sort-static(20px 1 2 3 4 65px), 20px 65px, 
+            'Filter a list to return only values with units');
+        
+        @include assert-equal(-sort-static(1 2 3 4), null, 
+            'Filter a list to return only values with units');
+        
+        @include assert-equal(-sort-static(1px 2px 3px 4px), 1px 2px 3px 4px, 
+            'Filter a list to return only values with units');
+
+    }
+
+    // Sort Static Tests
+    @include test('-sort-fractional [function]') {
+
+        @include assert-equal(-sort-fractional(20px 1 2 3 4 65px), 1 2 3 4, 
+            'Filter a list to return only unitless values');
+        
+        @include assert-equal(-sort-fractional(1 2 3 4), 1 2 3 4, 
+            'Filter a list to return only unitless values');
+        
+        @include assert-equal(-sort-fractional(1px 2px 3px 4px), null, 
+            'Filter a list to return only unitless values');
+
+    }
+
+}

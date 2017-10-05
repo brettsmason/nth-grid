@@ -1,0 +1,27 @@
+@include test-module('Gutter Functions') {
+
+    // Calc Gutter Tests
+    @include test('-calc-gutter [function]') {
+
+        @include assert-equal(-calc-gutter(1rem, 2), 0.5rem, 
+            'Calculates the gutter value to remove from cell size');
+        
+        @include assert-equal(-calc-gutter(3rem, 6), 2.5rem, 
+            'Calculates the gutter value to remove from cell size');
+
+        @include assert-equal(-calc-gutter(30px, 200px 2 1), 20px, 
+            'Calculates the gutter value to remove from cell size');
+    }
+
+    // Calc Gutter Tests
+    @include test('-gutter-position [function]') {
+        
+        @include assert-equal(-gutter-position(false), right, 
+            'Sets the position of the gutter');
+        
+        @include assert-equal(-gutter-position(true), bottom, 
+            'Sets the position of the gutter');
+
+    }
+
+}
