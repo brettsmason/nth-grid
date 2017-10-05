@@ -20,6 +20,12 @@
         @include assert-equal(-cell-size(4 1, 2, 30px), calc(25% - 2.25rem),
             'Returns the calc() expression size');
 
+        @include assert-equal(-cell-size(200px 1 2, 1, 1rem), calc(200px - 0.7rem),
+            'Returns the calc() expression size');
+        
+        @include assert-equal(-cell-size(2 3 300px 1, 2, 25px), calc(200px - 0.7rem),
+            'Returns the calc() expression size');
+
     }
 
 }
