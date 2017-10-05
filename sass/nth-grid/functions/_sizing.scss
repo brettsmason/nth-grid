@@ -26,11 +26,21 @@
       $size: #{$item};
     }
   } @else {
-    @if $calc-gutter {
-      $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
+    @if $static {
+      @if $calc-gutter {
+        $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
+      }
+      @else {
+        $size: calc(#{percentage($item / $total)} #{$static});
+      }
     }
     @else {
-      $size: calc(#{percentage($item / $total)} #{$static});
+      @if $calc-gutter {
+        $size: calc(#{percentage($item / $total)} - #{$calc-gutter});
+      }
+      @else {
+        $size: calc(#{percentage($item / $total)});
+      }
     }
   }
 
