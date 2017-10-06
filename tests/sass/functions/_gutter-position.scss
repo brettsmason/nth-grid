@@ -1,0 +1,11 @@
+@include test-module('@function -gutter-position') {
+
+    @include test('Sets the position of the gutter') {
+        
+        @include assert-equal(-gutter-position(false), right);
+        
+        @include assert-equal(-gutter-position(true), bottom);
+
+    }
+
+}

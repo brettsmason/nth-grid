@@ -1,0 +1,12 @@
+@include test-module('@function repeat') {
+
+    @include test('Repeat a value x number of times') {
+
+        @include assert-equal(repeat(2, 20px), 20px 20px);
+
+        @include assert-equal(repeat(6, 10px 1), (10px 1) (10px 1) (10px 1) (10px 1) (10px 1) (10px 1));
+        
+        @include assert-equal(repeat(4, 1 3 5), (1 3 5) (1 3 5) (1 3 5) (1 3 5));
+    }
+
+}

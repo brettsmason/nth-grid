@@ -1,0 +1,178 @@
+@include test-module('@mixin grid()') {
+    
+    @include test('grid() with default options') {
+        @include assert('Default mixin output') {
+            @include output {
+                @include grid();
+            }
+
+            @include expect {
+                display: flex;
+                flex-flow: row wrap;
+
+                > :nth-child(3n + 1) {
+                    width: calc(33.33333% - 0.66667rem);
+                    margin-right: 1rem;
+                }
+
+                > :nth-child(3n + 2) {
+                    width: calc(33.33333% - 0.66667rem);
+                    margin-right: 1rem;
+                }
+
+                > :nth-child(3n + 3) {
+                    width: calc(33.33333% - 0.66667rem);
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @include test('grid(1)') {
+        @include assert('Single column output') {
+            @include output {
+                @include grid(1);
+            }
+
+            @include expect {
+                display: flex;
+                flex-flow: row wrap;
+
+                > :nth-child(1n + 1) {
+                    width: calc(100% - 0rem);
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @include test('grid(2 4 6 8, 2rem)') {
+        @include assert('4 columns with custom gutter') {
+            @include output {
+                @include grid(2 4 6 8, 2rem);
+            }
+
+            @include expect {
+                display: flex;
+                flex-flow: row wrap;
+
+                > :nth-child(4n + 1) {
+                    width: calc(10% - 1.5rem);
+                    margin-right: 2rem;
+                }
+
+                > :nth-child(4n + 2) {
+                    width: calc(20% - 1.5rem);
+                    margin-right: 2rem;
+                }
+
+                > :nth-child(4n + 3) {
+                    width: calc(30% - 1.5rem);
+                    margin-right: 2rem;
+                }
+
+                > :nth-child(4n + 4) {
+                    width: calc(40% - 1.5rem);
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @include test('grid(250px 2 10vw 3 1, 40px)') {
+        @include assert('5 columns with mixed units') {
+            @include output {
+                @include grid(250px 2 10vw 3 1, 40px);
+            }
+
+            @include expect {
+                display: flex;
+                flex-flow: row wrap;
+
+                > :nth-child(5n + 1) {
+                    width: calc(250px - 32px);
+                    margin-right: 40px;
+                }
+
+                > :nth-child(5n + 2) {
+                    width: calc(33.33333% - 250px - 10vw - 32px);
+                    margin-right: 40px;
+                }
+
+                > :nth-child(5n + 3) {
+                    width: calc(10vw - 32px);
+                    margin-right: 40px;
+                }
+
+                > :nth-child(5n + 4) {
+                    width: calc(50% - 250px - 10vw - 32px);
+                    margin-right: 40px;
+                }
+
+                > :nth-child(5n + 5) {
+                    width: calc(16.66667% - 250px - 10vw - 32px);
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    @include test('grid(1 2 1, 0)') {
+        @include assert('3 columns with no gutters') {
+            @include output {
+                @include grid(1 2 1, 0);
+            }
+
+            @include expect {
+                display: flex;
+                flex-flow: row wrap;
+
+                > :nth-child(3n + 1) {
+                    width: 25%;
+                }
+
+                > :nth-child(3n + 2) {
+                    width: 50%;
+                }
+
+                > :nth-child(3n + 3) {
+                    width: 25%;
+                }
+            }
+        }
+    }
+
+    @include test('grid(0 0 1 0, 10px, $vertical: true)') {
+        @include assert('Vertical 4 row layout with `shrink` behaviour') {
+            @include output {
+                @include grid(0 0 1 0, 10px, $vertical: true);
+            }
+
+            @include expect {
+                display: flex;
+                flex-flow: column nowrap;
+
+                > :nth-child(4n + 1) {
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+
+                > :nth-child(4n + 2) {
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+
+                > :nth-child(4n + 3) {
+                    height: calc(100% - 7.5px);
+                    margin-bottom: 10px;
+                }
+
+                > :nth-child(4n + 4) {
+                    height: auto;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+}

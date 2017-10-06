@@ -1,0 +1,12 @@
+@include test-module('@function -calc-gutter') {
+
+    @include test('Calculates the gutter value to remove from cell size') {
+
+        @include assert-equal(-calc-gutter(1rem, 2), 0.5rem);
+        
+        @include assert-equal(-calc-gutter(3rem, 6), 2.5rem);
+
+        @include assert-equal(-calc-gutter(30px, 200px 2 1), 20px);
+    }
+
+}

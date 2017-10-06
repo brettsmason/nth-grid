@@ -1,0 +1,12 @@
+@include test-module('@function sum') {
+
+    @include test('Adds up a list of numbers to form a total') {
+
+        @include assert-equal(sum(1 2 3 4 5, false), 15);
+        
+        @include assert-equal(sum(4 6 5 3, false), 18);
+
+        @include assert-equal(sum(20px 1 365px, true), 386);
+    }
+
+}
