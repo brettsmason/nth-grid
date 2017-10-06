@@ -79,6 +79,29 @@
         }
     }
 
+    @include test('grid(1 2, $selector: ".my-cell")') {
+        @include assert('2 columns with custom selector') {
+            @include output {
+                @include grid(1 2, $selector: '.my-cell');
+            }
+
+            @include expect {
+                display: flex;
+                flex-flow: row wrap;
+
+                .my-cell:nth-child(2n + 1) {
+                    width: calc(33.33333% - 0.5rem);
+                    margin-right: 1rem;
+                }
+
+                .my-cell:nth-child(2n + 2) {
+                    width: calc(66.66667% - 0.5rem);
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
     @include test('grid(250px 2 10vw 3 1, 40px)') {
         @include assert('5 columns with mixed units') {
             @include output {
