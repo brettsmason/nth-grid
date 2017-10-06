@@ -10,12 +10,12 @@
   $total: if(type-of($layout) == 'list', sum($layout), $layout);
   $length: length($layout);
   $item: if(type-of($layout) == 'list', nth($layout, $index), 1);
-  $static: -sort-static($layout, '-');
   $fr: -sort-fractional($layout);
+  $static: -sort-static($layout, length($fr), '-');
   $calc-gutter: if($gutter != 0, -calc-gutter($gutter, $layout), null);
   $size: 0;
 
-  // Shrink behaviour
+  // Shrink behaviour (auto width/height)
   @if $item == 0 {
     $size: auto;
   }

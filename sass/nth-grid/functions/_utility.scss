@@ -43,7 +43,14 @@
 }
 
 /// Sort a supplied list and return just the values with a unit.
-@function -sort-static($list, $separator: null) {
+///
+/// @param {List}   $list      - A list of values.
+/// @param {Number} $divide    - The value to divide each static value by (used by multi column multi unit grids).
+/// @param {String} $separator - A value to insert between each value (eg -).
+///
+/// @return {List}
+///
+@function -sort-static($list, $divide: null, $separator: null) {
     $static: ();
 
     @each $value in $list {
@@ -52,7 +59,7 @@
                 $static: append($static, #{$separator});
             }
 
-            $static: append($static, $value);
+            $static: if($divide, append($static, $value / $divide), append($static, $value));
         }
     }
 
@@ -62,6 +69,11 @@
 }
 
 /// Sort a supplied list and return just the values without a unit.
+///
+/// @param {List} $list - A list of values.
+///
+/// @return {List}
+///
 @function -sort-fractional($list) {
     $fr: ();
 
