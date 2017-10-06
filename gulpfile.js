@@ -26,7 +26,8 @@ function copy() {
 function sass() {
   return gulp.src('tests/visual/**/*.scss')
     .pipe($.sass({
-      includePaths: ['sass']
+      includePaths: ['sass'],
+      outputStyle: 'expanded'
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({
       browsers: [ "last 2 versions", "ie >= 10", "ios >= 7" ]
