@@ -22,11 +22,15 @@ pre {
 }
 
 .grid-item {
-    background: #7FDBFF;
+    background: #3F9BBF;
     margin-bottom: 1rem;
     line-height: 50px;
     text-align: center;
     color: #fff;
+
+    @media (min-width: 800px) {
+        background: #7FDBFF;
+    }
 }
 
 
