@@ -19,13 +19,19 @@
   @if $item == 0 {
     $size: auto;
   }
+
+  // Values with units
   @else if not unitless($item) {
     @if $calc-gutter {
       $size: calc(#{$item} - #{$calc-gutter});
-    } @else {
+    }
+    @else {
       $size: #{$item};
     }
-  } @else {
+  }
+
+  // Values without units
+  @else {
     @if $static {
       @if $calc-gutter {
         $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
