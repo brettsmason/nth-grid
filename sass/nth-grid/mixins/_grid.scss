@@ -4,8 +4,10 @@
     $selector: $grid-selector,
     $base: true,
     $vertical: false,
-    $wrap: true
+    $wrap: null
 ) {
+  $wrap: if($wrap == null and $vertical, false, true);
+
   @if $base {
     $direction: if($vertical, column, row);
     $wrap: if($wrap, wrap, nowrap);
