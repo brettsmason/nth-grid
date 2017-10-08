@@ -118,7 +118,7 @@
                 }
 
                 > :nth-child(5n + 2) {
-                    width: calc(33.33333% - 250px - 10vw - 32px);
+                    width: calc(33.33333% - 83.33333px - 3.33333vw - 32px);
                     margin-right: 40px;
                 }
 
@@ -128,12 +128,12 @@
                 }
 
                 > :nth-child(5n + 4) {
-                    width: calc(50% - 250px - 10vw - 32px);
+                    width: calc(50% - 83.33333px - 3.33333vw - 32px);
                     margin-right: 40px;
                 }
 
                 > :nth-child(5n + 5) {
-                    width: calc(16.66667% - 250px - 10vw - 32px);
+                    width: calc(16.66667% - 83.33333px - 3.33333vw - 32px);
                     margin-right: 0;
                 }
             }
@@ -152,14 +152,17 @@
 
                 > :nth-child(3n + 1) {
                     width: 25%;
+                    margin-right: 0;
                 }
 
                 > :nth-child(3n + 2) {
                     width: 50%;
+                    margin-right: 0;
                 }
 
                 > :nth-child(3n + 3) {
                     width: 25%;
+                    margin-right: 0;
                 }
             }
         }

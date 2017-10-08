@@ -18,7 +18,7 @@
 
         @include assert-equal(-cell-size(200px 1 2, 1, 1rem), calc(200px - 0.66667rem));
         
-        @include assert-equal(-cell-size(2 3 300px 1, 2, 40px), calc(50% - 300px - 30px));
+        @include assert-equal(-cell-size(2 3 300px 1, 2, 40px), calc(50% - 100px - 30px));
 
     }
 
