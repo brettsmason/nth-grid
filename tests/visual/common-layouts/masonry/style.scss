@@ -1,0 +1,50 @@
+@import 'nth-grid';
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    overflow: hidden;
+}
+
+.grid-item {
+    padding: 1rem;
+    background: tomato;
+}
+
+////////////////////////
+/// Testing begins here.
+////////////////////////
+
+$left: (
+    1: 1 1,
+    2: 1,
+);
+
+$right: (
+    1: 1,
+    2: 1 1
+);
+
+.grid {
+    @include grid(1 1, 40px);
+    height: 800px;
+}
+
+.left {
+    @include grid(1 1, 40px);
+    @include grid($left, 40px, $vertical: true);
+    flex-wrap: wrap;
+}
+
+.right {
+    @include grid(1 1, 40px, $vertical: true);
+    @include grid($right, 40px);
+}
