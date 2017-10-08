@@ -1,7 +1,7 @@
 @mixin grid(
-    $layout: 3,
-    $gutter: 1rem,
-    $selector: '>',
+    $layout: $grid-layout,
+    $gutter: $grid-gutter,
+    $selector: $grid-selector,
     $vertical: false,
     $wrap: true
 ) {
