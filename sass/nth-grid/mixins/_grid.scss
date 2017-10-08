@@ -2,10 +2,11 @@
     $layout: 3,
     $gutter: 1rem,
     $selector: '>',
-    $vertical: false
+    $vertical: false,
+    $wrap: true
 ) {
   $direction: if($vertical, column, row);
-  $wrap: if($vertical, nowrap, wrap);
+  $wrap: if($wrap, wrap, nowrap);
 
   display: flex;
   flex-flow: $direction $wrap;
