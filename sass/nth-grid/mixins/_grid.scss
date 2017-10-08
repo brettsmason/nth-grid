@@ -6,7 +6,15 @@
     $vertical: false,
     $wrap: null
 ) {
-  $wrap: if($wrap == null and $vertical, false, true);
+  @if $wrap == null and $vertical {
+    $wrap: false;
+  }
+  @else if $wrap == null and not $vertical {
+    $wrap: true;
+  }
+  @else {
+    $wrap: $wrap;
+  }
 
   @if $base {
     $direction: if($vertical, column, row);
