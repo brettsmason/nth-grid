@@ -7,13 +7,18 @@
   $measure: if($vertical, height, width);
   $position: -gutter-position($vertical);
 
-  @for $i from 1 through $layout {
-    // Margin to apply. Set to 0 for end of row/column.
-    $margin: if($i == $layout, 0, $gutter);
+  @if unitless($layout) {
+    @for $i from 1 through $layout {
+      // Margin to apply. Set to 0 for end of row/column.
+      $margin: if($i == $layout, 0, $gutter);
 
-    #{$selector}:nth-child(#{$layout}n + #{$i}) {
-      #{$measure}: -cell-size($layout, $i, $gutter);
-      margin-#{$position}: $margin;
+      #{$selector}:nth-child(#{$layout}n + #{$i}) {
+        #{$measure}: -cell-size($layout, $i, $gutter);
+        margin-#{$position}: $margin;
+      }
     }
+  }
+  @else {
+    @error 'If using a single value it needs to be a single unitless number.';
   }
 }
