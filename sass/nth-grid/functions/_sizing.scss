@@ -45,7 +45,7 @@
         $size: calc(#{percentage($item / $total)} - #{$calc-gutter});
       }
       @else {
-        $size: calc(#{percentage($item / $total)});
+        $size: percentage($item / $total);
       }
     }
   }
