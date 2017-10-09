@@ -21,7 +21,7 @@
 
     // If not a list or number something is wrong
     @else {
-        @error '$layout must be a list or a unitless number of cells.';
+        @error '$layout must be a list or a unitless number.';
     }
 
     @return ($gutter / $length) * ($length - 1);
