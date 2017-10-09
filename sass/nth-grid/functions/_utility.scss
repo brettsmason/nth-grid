@@ -35,9 +35,9 @@
 @function repeat($count, $value) {
     $list: ();
 
-@for $i from 1 through $count {
-    $list: append($list, $value, space);
-}
+    @for $i from 1 through $count {
+        $list: append($list, $value, space);
+    }
 
     @return $list;
 }
