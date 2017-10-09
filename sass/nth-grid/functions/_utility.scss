@@ -87,3 +87,44 @@
 
     @return $fr;
 }
+
+/// Split up a list with a separator before each value.
+///
+/// @param {List}   $list      - A list of values.
+/// @param {String} $separator - The item to use to separate the list.
+///
+@function -insert-separators($list, $separator) {
+    $values: ();
+
+    @if type-of($list) == 'list' {
+        @each $value in $values {
+            $values: append($values, #{$separator});
+            $values: append($values, $value);
+        }
+    }
+    @else {
+        @error '$list must be a list of values.';
+    }
+
+    @return $values;
+}
+
+/// Divide each value in a list by the given number.
+///
+/// @param {List}   $list   - A list of values.
+/// @param {Number} $divide - The value to divide by.
+///
+@function -divide-values($list, $divide) {
+    $values: ();
+
+    @if type-of($list) == 'list' {
+        @each $value in $values {
+            $values: append($values, $value / $divide);
+        }
+    }
+    @else {
+        @error '$list must be a list of values.';
+    }
+
+    @return $values;
+}
