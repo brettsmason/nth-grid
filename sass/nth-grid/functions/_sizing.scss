@@ -10,8 +10,8 @@
   $total: if(type-of($layout) == 'list', sum($layout), $layout);
   $length: length($layout);
   $item: if(type-of($layout) == 'list', nth($layout, $index), 1);
-  $fr: -sort-fractional($layout);
-  $static: -sort-static($layout, length($fr), '-');
+  $fractional: -filter-fractional($layout);
+  $static: -filter-static($layout, length($fractional), '-');
   $calc-gutter: if($gutter != 0, -calc-gutter($gutter, $layout), null);
   $size: 0;
 

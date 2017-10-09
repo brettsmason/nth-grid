@@ -50,7 +50,7 @@
 ///
 /// @return {List}
 ///
-@function -sort-static($list, $divide: null, $separator: null) {
+@function -filter-static($list, $divide: null, $separator: null) {
     $static: ();
 
     @each $value in $list {
@@ -74,7 +74,7 @@
 ///
 /// @return {List}
 ///
-@function -sort-fractional($list) {
+@function -filter-fractional($list) {
     $fr: ();
 
     @each $value in $list {
