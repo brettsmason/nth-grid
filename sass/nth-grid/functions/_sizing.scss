@@ -7,12 +7,28 @@
 /// @return {String}
 ///
 @function -cell-size($layout, $index, $gutter) {
+
+  // Total number of cells in our layout.
+  // If this is a list this will be the list values added together,
+  // otherwise its the single value supplied.
   $total: if(type-of($layout) == 'list', sum($layout), $layout);
+
+  // Length of the list if applicable
   $length: length($layout);
+
+  // Item from the list matching the given index
   $item: if(type-of($layout) == 'list', nth($layout, $index), 1);
+
+  // All fractional (unitless) values within $layout
   $fractional: -filter-fractional($layout);
+
+  // All values in $layout with units
   $static: -filter-static($layout, length($fractional), '-');
+
+  // Gutter value to subtract from the calc() declaration
   $calc-gutter: if($gutter != 0, -calc-gutter($gutter, $layout), null);
+
+  // Zero the size ready...
   $size: 0;
 
   // Shrink behaviour (auto width/height)
