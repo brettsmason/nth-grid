@@ -8,10 +8,20 @@
 @function -calc-gutter($gutter, $layout) {
     $length: 0;
 
+    // If $layout is a list use the length of the list
     @if type-of($layout) == 'list' {
         $length: length($layout);
-    } @else {
+    }
+
+    // Otherwise a unitless value was supplied
+    // eg 3 so we use that instead (3 columns)
+    @else if unitless($layout) {
         $length: $layout;
+    }
+
+    // If not a list or number something is wrong
+    @else {
+        @error '$layout must be a list or a unitless number of cells.';
     }
 
     @return ($gutter / $length) * ($length - 1);
