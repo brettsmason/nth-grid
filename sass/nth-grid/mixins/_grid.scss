@@ -6,6 +6,7 @@
     $vertical: false,
     $wrap: null
 ) {
+  // Set some defaults for wrap if not given
   @if $wrap == null and $vertical {
     $wrap: false;
   }
@@ -25,12 +26,12 @@
   }
 
   @if type-of($layout) == 'number' {
-    @include -is-grid-number($layout, $gutter, $selector, $vertical);
+    @include -grid-number($layout, $gutter, $selector, $vertical);
   }
   @else if type-of($layout) == 'list' {
-    @include -is-grid-list($layout, $gutter, $selector, $vertical);
+    @include -grid-list($layout, $gutter, $selector, $vertical);
   }
   @else if type-of($layout) == 'map' {
-    @include -is-grid-map($layout, $gutter, $selector, $vertical);
+    @include -grid-map($layout, $gutter, $selector, $vertical);
   }
 }

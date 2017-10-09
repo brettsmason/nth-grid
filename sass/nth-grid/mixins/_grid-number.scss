@@ -1,4 +1,4 @@
-@mixin -is-grid-number(
+@mixin -grid-number(
     $layout,
     $gutter,
     $selector,
@@ -19,6 +19,6 @@
     }
   }
   @else {
-    @error 'If using a single value it needs to be a single unitless number.';
+    @error 'If using a single value it should be a single unitless number.';
   }
 }
