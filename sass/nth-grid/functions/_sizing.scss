@@ -26,7 +26,7 @@
   $static: _filter-static($layout, length($fractional), '-');
 
   // Gutter value to subtract from the calc() declaration
-  $calc-gutter: if($gutter != 0, _calc-gutter($gutter, $layout), null);
+  $gutter-allowance: if($gutter != 0, _gutter-allowance($gutter, $layout), null);
 
   // Zero the size ready...
   $size: 0;
@@ -38,8 +38,8 @@
 
   // Values with units
   @else if not unitless($item) {
-    @if $calc-gutter {
-      $size: calc(#{$item} - #{$calc-gutter});
+    @if $gutter-allowance {
+      $size: calc(#{$item} - #{$gutter-allowance});
     }
     @else {
       $size: #{$item};
@@ -49,16 +49,16 @@
   // Values without units
   @else {
     @if $static {
-      @if $calc-gutter {
-        $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
+      @if $gutter-allowance {
+        $size: calc(#{percentage($item / $total)} #{$static} - #{$gutter-allowance});
       }
       @else {
         $size: calc(#{percentage($item / $total)} #{$static});
       }
     }
     @else {
-      @if $calc-gutter {
-        $size: calc(#{percentage($item / $total)} - #{$calc-gutter});
+      @if $gutter-allowance {
+        $size: calc(#{percentage($item / $total)} - #{$gutter-allowance});
       }
       @else {
         $size: percentage($item / $total);
