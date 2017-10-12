@@ -1,11 +1,11 @@
-@mixin -grid-map(
+@mixin _grid-map(
     $layout,
     $gutter,
     $selector,
     $vertical
 ) {
   $measure: if($vertical, height, width);
-  $position: -gutter-position($vertical);
+  $position: _gutter-position($vertical);
 
   $map-values: map-values($layout);
   $map-total: 0;
@@ -28,10 +28,10 @@
       $margin: if($i == $length, 0, $gutter);
 
       // Calculation for the calc() gutter subtraction
-      $calc-gutter: -calc-gutter($gutter, $length);
+      $calc-gutter: _calc-gutter($gutter, $length);
 
       #{$selector}:nth-child(#{$map-total}n + #{$global-index}) {
-        #{$measure}: -cell-size($list, $i, $gutter);
+        #{$measure}: _cell-size($list, $i, $gutter);
         margin-#{$position}: $margin;
       }
 

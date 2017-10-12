@@ -1,11 +1,11 @@
-@mixin -grid-number(
+@mixin _grid-number(
     $layout,
     $gutter,
     $selector,
     $vertical
 ) {
   $measure: if($vertical, height, width);
-  $position: -gutter-position($vertical);
+  $position: _gutter-position($vertical);
 
   @if unitless($layout) {
     @for $i from 1 through $layout {
@@ -13,7 +13,7 @@
       $margin: if($i == $layout, 0, $gutter);
 
       #{$selector}:nth-child(#{$layout}n + #{$i}) {
-        #{$measure}: -cell-size($layout, $i, $gutter);
+        #{$measure}: _cell-size($layout, $i, $gutter);
         margin-#{$position}: $margin;
       }
     }

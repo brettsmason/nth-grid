@@ -50,7 +50,7 @@
 ///
 /// @return {List}
 ///
-@function -filter-static($list, $divide: null, $separator: null) {
+@function _filter-static($list, $divide: null, $separator: null) {
     $static: ();
 
     @each $value in $list {
@@ -74,7 +74,7 @@
 ///
 /// @return {List}
 ///
-@function -filter-fractional($list) {
+@function _filter-fractional($list) {
     $fr: ();
 
     @each $value in $list {
@@ -93,7 +93,7 @@
 /// @param {List}   $list      - A list of values.
 /// @param {String} $separator - The item to use to separate the list.
 ///
-@function -insert-separators($list, $separator) {
+@function _insert-separators($list, $separator) {
     $values: ();
 
     @if type-of($list) == 'list' {
@@ -114,7 +114,7 @@
 /// @param {List}   $list   - A list of values.
 /// @param {Number} $divide - The value to divide by.
 ///
-@function -divide-values($list, $divide) {
+@function _divide-values($list, $divide) {
     $values: ();
 
     @if type-of($list) == 'list' {

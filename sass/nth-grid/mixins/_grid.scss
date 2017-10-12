@@ -26,12 +26,12 @@
   }
 
   @if type-of($layout) == 'number' {
-    @include -grid-number($layout, $gutter, $selector, $vertical);
+    @include _grid-number($layout, $gutter, $selector, $vertical);
   }
   @else if type-of($layout) == 'list' {
-    @include -grid-list($layout, $gutter, $selector, $vertical);
+    @include _grid-list($layout, $gutter, $selector, $vertical);
   }
   @else if type-of($layout) == 'map' {
-    @include -grid-map($layout, $gutter, $selector, $vertical);
+    @include _grid-map($layout, $gutter, $selector, $vertical);
   }
 }

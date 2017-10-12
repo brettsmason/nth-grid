@@ -6,7 +6,7 @@
 ///
 /// @return {String}
 ///
-@function -cell-size($layout, $index, $gutter) {
+@function _cell-size($layout, $index, $gutter) {
 
   // Total number of cells in our layout.
   // If this is a list this will be the list values added together,
@@ -20,13 +20,13 @@
   $item: if(type-of($layout) == 'list', nth($layout, $index), 1);
 
   // All fractional (unitless) values within $layout
-  $fractional: -filter-fractional($layout);
+  $fractional: _filter-fractional($layout);
 
   // All values in $layout with units
-  $static: -filter-static($layout, length($fractional), '-');
+  $static: _filter-static($layout, length($fractional), '-');
 
   // Gutter value to subtract from the calc() declaration
-  $calc-gutter: if($gutter != 0, -calc-gutter($gutter, $layout), null);
+  $calc-gutter: if($gutter != 0, _calc-gutter($gutter, $layout), null);
 
   // Zero the size ready...
   $size: 0;
