@@ -128,3 +128,20 @@
 
     @return $values;
 }
+
+/// Check if the unit of a value is a fixed value.
+///
+/// @param {Number} $value - A number to establish if its fixed lengh.
+///
+/// @return {Boolean}
+///
+@function _is-fixed-unit($value) {
+    $fixed-units: (em, ex, px, cm, mm, in, pt, pc, vh, vw);
+
+    @if(index($fixed-units, unit($value))) {
+        @return true;
+    }
+    @else {
+        @return false;
+    }
+}
