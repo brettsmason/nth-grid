@@ -68,3 +68,40 @@
 
   @return $size;
 }
+
+// Skeleton of new sizing function
+@function _cell-size($layout, $index, $gutter) {
+  $gutter: _gutter-allowance($layout, $gutter);
+  $item: nth($layout, $index);
+  $total: length($layout);
+  $fixed: 10px 20px; // get fixed (not unitless) values
+  $fluid: 1 2 3; // get fluid (unitless) values
+  $calc-required: true; // set to true if gutter and fixed value (needs function)
+
+  // Base percentage calculation
+  $size: 100% * $item / $total;
+
+  // If we have non fluid value use that instead
+  @if not unitless($item) {
+      $size: $item;
+  }
+
+  // Append any static values
+  @if $static {
+      @each $value in $static {
+          $size: $size + ' - #{$value}';
+      }
+  }
+
+  // Append the gutter if used
+  @if $gutter {
+      $size: $size + ' - #{$gutter}';
+  }
+
+  // Wrap size in calc() if needed
+  @if $calc-required {
+      $size: calc(#{$size});
+  }
+
+  @return $size;
+}
