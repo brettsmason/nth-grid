@@ -87,7 +87,7 @@
   }
 
   // Append any static values
-  @if $fixed {
+  @if $fixed and unitless($cell) {
       @each $value in $fixed {
           $size: $size + ' - #{$value}';
       }
@@ -95,7 +95,7 @@
 
   // Append the gutter if used
   @if $gutter-allowance {
-      $size: $size + ' - #{$gutter}';
+      $size: $size + ' - #{$gutter-allowance}';
   }
 
   // Wrap size in calc() if needed
