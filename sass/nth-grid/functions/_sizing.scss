@@ -89,7 +89,7 @@
   // Append any static values
   @if $fixed and unitless($cell) {
       @each $value in $fixed {
-          $size: $size + ' - #{$value}';
+          $size: $size + ' - #{$value} / #{length($fluid)}';
       }
   }
 
