@@ -6,7 +6,7 @@
 ///
 /// @return {String}
 ///
-@function _old-cell-size($layout, $index, $gutter) {
+@function _cell-not-size($layout, $index, $gutter) {
 
   // Total number of cells in our layout.
   // If this is a list this will be the list values added together,
@@ -111,7 +111,7 @@
   $total: 0;
 
   @if type-of($layout) == 'list' {
-    $total: length($layout);
+    $total: sum($layout);
   }
   @else if type-of($layout) == 'number' and unitless($layout) {
     $total: $layout;

@@ -5,7 +5,7 @@
 ///
 /// @return {List}
 ///
-@function _gutter-allowance($gutter, $layout) {
+@function _gutter-allowance($layout, $gutter) {
     $length: 0;
 
     // If $layout is a list use the length of the list
