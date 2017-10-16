@@ -6,7 +6,7 @@
 ///
 /// @return {String}
 ///
-@function _cell-size($layout, $index, $gutter) {
+@function _old-cell-size($layout, $index, $gutter) {
 
   // Total number of cells in our layout.
   // If this is a list this will be the list values added together,
@@ -71,30 +71,30 @@
 
 // Skeleton of new sizing function
 @function _cell-size($layout, $index, $gutter) {
-  $gutter: _gutter-allowance($layout, $gutter);
-  $item: nth($layout, $index);
-  $total: length($layout);
-  $fixed: 10px 20px; // get fixed (not unitless) values
-  $fluid: 1 2 3; // get fluid (unitless) values
-  $calc-required: true; // set to true if gutter and fixed value (needs function)
+  $cell: _select-cell($layout, $index);
+  $total: _total-cells($layout);
+  $fixed: _filter-static($layout);
+  $fluid: _filter-fractional($layout);
+  $gutter-allowance: _gutter-allowance($layout, $gutter);
+  $calc-required: _calc-required($cell, $gutter);
 
   // Base percentage calculation
-  $size: 100% * $item / $total;
+  $size: 100% * $cell / $total;
 
   // If we have non fluid value use that instead
-  @if not unitless($item) {
-      $size: $item;
+  @if not unitless($cell) {
+      $size: $cell;
   }
 
   // Append any static values
-  @if $static {
-      @each $value in $static {
+  @if $fixed {
+      @each $value in $fixed {
           $size: $size + ' - #{$value}';
       }
   }
 
   // Append the gutter if used
-  @if $gutter {
+  @if $gutter-allowance {
       $size: $size + ' - #{$gutter}';
   }
 
@@ -104,4 +104,43 @@
   }
 
   @return $size;
+}
+
+// Return the total number of cells for the row/column.
+@function _total-cells($layout) {
+  $total: 0;
+
+  @if type-of($layout) == 'list' {
+    $total: length($layout);
+  }
+  @else if type-of($layout) == 'number' and unitless($layout) {
+    $total: $layout;
+  }
+
+  @return $total;
+}
+
+// Select the specific cell to use
+@function _select-cell($layout, $index: null) {
+  $cell: null;
+
+  @if type-of($layout) =='list' and $index {
+    $cell: nth($layout, $index);
+  }
+  @else if type-of($layout) == 'number' {
+    $cell: 1;
+  }
+
+  @return $cell;
+}
+
+// Determine if calc() output is required
+@function _calc-required($cell, $gutter) {
+  $required: false;
+
+  @if not unitless($cell) or $gutter {
+    $required: true;
+  }
+
+  @return $required;
 }
