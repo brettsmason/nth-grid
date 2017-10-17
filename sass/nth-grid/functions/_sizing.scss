@@ -72,29 +72,34 @@
 // Skeleton of new sizing function
 @function _cell-size($layout, $index, $gutter) {
   $cell: _select-cell($layout, $index);
-  $total: _total-cells($layout);
+  $total-cells: _total-cells($layout);
   $fixed: _filter-static($layout);
   $fluid: _filter-fractional($layout);
+  $total-fluid: length($fluid);
   $gutter-allowance: _gutter-allowance($layout, $gutter);
   $calc-required: _calc-required($cell, $gutter);
 
   // Base percentage calculation
-  $size: 100% * $cell / $total;
+  $size: 100% * $cell / $total-cells;
 
   // If we have non fluid value use that instead
   @if not unitless($cell) {
       $size: $cell;
   }
 
+  @if $cell == 0 {
+    $size: auto;
+  }
+
   // Append any static values
-  @if $fixed and unitless($cell) {
+  @if $fixed and unitless($cell) and $cell != 0 {
       @each $value in $fixed {
-          $size: $size + ' - #{$value} / #{length($fluid)}';
+          $size: $size + ' - #{$value / $total-fluid}';
       }
   }
 
   // Append the gutter if used
-  @if $gutter-allowance {
+  @if $gutter-allowance and $cell != 0 {
       $size: $size + ' - #{$gutter-allowance}';
   }
 
@@ -138,8 +143,14 @@
 @function _calc-required($cell, $gutter) {
   $required: false;
 
-  @if not unitless($cell) or $gutter {
+  // If we have a gutter, calc() is needed
+  @if $gutter != 0 {
     $required: true;
+  }
+
+  // Auto sized cells dont need calc()
+  @if $cell == 0 {
+    $required: false;
   }
 
   @return $required;

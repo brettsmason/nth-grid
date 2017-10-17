@@ -8,6 +8,10 @@
 @function _gutter-allowance($layout, $gutter) {
     $length: 0;
 
+    @if $gutter == 0 {
+        @return null;
+    }
+
     // If $layout is a list use the length of the list
     @if type-of($layout) == 'list' {
         $length: length($layout);
