@@ -35,25 +35,26 @@ pre {
 ////////////////////////
 
 .grid-1 {
-    @include grid(1, 1rem);
+    @include grid;
+    @include grid-layout(1, 1rem);
 }
 
 .grid-2 {
-    @include grid(4, 1rem);
+    @include grid;
+    @include grid-layout(4, 1rem);
 }
 
 .grid-3 {
-    @include grid(12, 1rem);
+    @include grid;
+    @include grid-layout(12, 1rem);
 }
 
 .grid-4 {
-    @include grid(2, 0);
+    @include grid;
+    @include grid-layout(2, 0);
 }
 
 .grid-5 {
-    @include grid(3, 0);
-}
-
-.my-grid {
-    width: -cell-size(1 200px 3, 1, 1rem);
+    @include grid;
+    @include grid-layout(3, 0);
 }

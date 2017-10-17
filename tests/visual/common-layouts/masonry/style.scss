@@ -34,17 +34,20 @@ $right: (
 );
 
 .grid {
-    @include grid(1 1, 40px);
+    @include grid;
+    @include grid-layout(1 1, 40px);
     height: 800px;
 }
 
 .left {
-    @include grid(1 1, 40px);
-    @include grid($left, 40px, $vertical: true);
+    @include grid(column wrap);
+    @include grid-layout(1 1, 40px);
+    @include grid-layout($left, 40px, $vertical: true);
     flex-wrap: wrap;
 }
 
 .right {
-    @include grid(1 1, 40px, $vertical: true);
-    @include grid($right, 40px);
+    @include grid;
+    @include grid-layout(1 1, 40px, $vertical: true);
+    @include grid-layout($right, 40px);
 }

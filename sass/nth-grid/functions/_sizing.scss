@@ -6,70 +6,6 @@
 ///
 /// @return {String}
 ///
-@function _cell-not-size($layout, $index, $gutter) {
-
-  // Total number of cells in our layout.
-  // If this is a list this will be the list values added together,
-  // otherwise its the single value supplied.
-  $total: if(type-of($layout) == 'list', sum($layout), $layout);
-
-  // Length of the list if applicable
-  $length: length($layout);
-
-  // Item from the list matching the given index
-  $item: if(type-of($layout) == 'list', nth($layout, $index), 1);
-
-  // All fractional (unitless) values within $layout
-  $fractional: _filter-fractional($layout);
-
-  // All values in $layout with units
-  $static: _filter-static($layout, length($fractional), '-');
-
-  // Gutter value to subtract from the calc() declaration
-  $gutter-allowance: if($gutter != 0, _gutter-allowance($gutter, $layout), null);
-
-  // Zero the size ready...
-  $size: 0;
-
-  // Shrink behaviour (auto width/height)
-  @if $item == 0 {
-    $size: auto;
-  }
-
-  // Values with units
-  @else if not unitless($item) {
-    @if $gutter-allowance {
-      $size: calc(#{$item} - #{$gutter-allowance});
-    }
-    @else {
-      $size: #{$item};
-    }
-  }
-
-  // Values without units
-  @else {
-    @if $static {
-      @if $gutter-allowance {
-        $size: calc(#{percentage($item / $total)} #{$static} - #{$gutter-allowance});
-      }
-      @else {
-        $size: calc(#{percentage($item / $total)} #{$static});
-      }
-    }
-    @else {
-      @if $gutter-allowance {
-        $size: calc(#{percentage($item / $total)} - #{$gutter-allowance});
-      }
-      @else {
-        $size: percentage($item / $total);
-      }
-    }
-  }
-
-  @return $size;
-}
-
-// Skeleton of new sizing function
 @function _cell-size($layout, $index, $gutter) {
   $cell: _select-cell($layout, $index);
   $total-cells: _total-cells($layout);
@@ -79,16 +15,19 @@
   $gutter-allowance: _gutter-allowance($layout, $gutter);
   $calc-required: _calc-required($cell, $gutter);
 
-  // Base percentage calculation
-  $size: 100% * $cell / $total-cells;
+  $size: 0;
 
-  // If we have non fluid value use that instead
-  @if not unitless($cell) {
-      $size: $cell;
-  }
-
+  // Shrink behaviour
   @if $cell == 0 {
     $size: auto;
+  }
+  // Cell size with a unit
+  @else if not unitless($cell) {
+    $size: $cell;
+  }
+  // Fractional cells
+  @else {
+    $size: 100% * $cell / $total-cells;
   }
 
   // Append any static values
@@ -109,49 +48,4 @@
   }
 
   @return $size;
-}
-
-// Return the total number of cells for the row/column.
-@function _total-cells($layout) {
-  $total: 0;
-
-  @if type-of($layout) == 'list' {
-    $total: sum($layout);
-  }
-  @else if type-of($layout) == 'number' and unitless($layout) {
-    $total: $layout;
-  }
-
-  @return $total;
-}
-
-// Select the specific cell to use
-@function _select-cell($layout, $index: null) {
-  $cell: null;
-
-  @if type-of($layout) =='list' and $index {
-    $cell: nth($layout, $index);
-  }
-  @else if type-of($layout) == 'number' {
-    $cell: 1;
-  }
-
-  @return $cell;
-}
-
-// Determine if calc() output is required
-@function _calc-required($cell, $gutter) {
-  $required: false;
-
-  // If we have a gutter, calc() is needed
-  @if $gutter != 0 {
-    $required: true;
-  }
-
-  // Auto sized cells dont need calc()
-  @if $cell == 0 {
-    $required: false;
-  }
-
-  @return $required;
 }

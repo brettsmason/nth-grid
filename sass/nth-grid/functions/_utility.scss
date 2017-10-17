@@ -50,16 +50,12 @@
 ///
 /// @return {List}
 ///
-@function _filter-static($list, $divide: null, $separator: null) {
+@function _filter-static($list) {
     $static: ();
 
     @each $value in $list {
         @if not unitless($value) {
-            @if $separator {
-                $static: append($static, #{$separator});
-            }
-
-            $static: if($divide, append($static, $value / $divide), append($static, $value));
+            $static: append($static, $value);
         }
     }
 
@@ -88,27 +84,6 @@
     @return $fr;
 }
 
-/// Split up a list with a separator before each value.
-///
-/// @param {List}   $list      - A list of values.
-/// @param {String} $separator - The item to use to separate the list.
-///
-@function _insert-separators($list, $separator) {
-    $values: ();
-
-    @if type-of($list) == 'list' {
-        @each $value in $values {
-            $values: append($values, #{$separator});
-            $values: append($values, $value);
-        }
-    }
-    @else {
-        @error '$list must be a list of values.';
-    }
-
-    @return $values;
-}
-
 /// Divide each value in a list by the given number.
 ///
 /// @param {List}   $list   - A list of values.
@@ -129,19 +104,47 @@
     @return $values;
 }
 
-/// Check if the unit of a value is a fixed value.
-///
-/// @param {Number} $value - A number to establish if its fixed lengh.
-///
-/// @return {Boolean}
-///
-@function _is-fixed-unit($value) {
-    $fixed-units: (em, ex, px, cm, mm, in, pt, pc, vh, vw);
+// Return the total number of cells for the row/column.
+@function _total-cells($layout) {
+    $total: 0;
 
-    @if(index($fixed-units, unit($value))) {
-        @return true;
+    @if type-of($layout) == 'list' {
+        $total: sum($layout);
     }
-    @else {
-        @return false;
+    @else if type-of($layout) == 'number' and unitless($layout) {
+        $total: $layout;
     }
+
+    @return $total;
+}
+  
+// Select the specific cell to use
+@function _select-cell($layout, $index: null) {
+    $cell: null;
+
+    @if type-of($layout) =='list' and $index {
+        $cell: nth($layout, $index);
+    }
+    @else if type-of($layout) == 'number' {
+        $cell: 1;
+    }
+
+    @return $cell;
+}
+  
+// Determine if calc() output is required
+@function _calc-required($cell, $gutter) {
+    $required: false;
+
+    // If we have a gutter, calc() is needed
+    @if $gutter != 0 {
+        $required: true;
+    }
+
+    // Auto sized cells dont need calc()
+    @if $cell == 0 {
+        $required: false;
+    }
+
+    @return $required;
 }

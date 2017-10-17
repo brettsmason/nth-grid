@@ -24,14 +24,16 @@ div {
 ////////////////////////
 
 .page {
-    @include grid(0 0 6 0, 1rem, $vertical: true);
+    @include grid(column nowrap);
+    @include grid-layout(0 0 6 0, 1rem, $vertical: true);
     height: 100vh;
     background: #eee;
     padding: 0;
 }
 
 .main {
-    @include grid(3 1);
+    @include grid;
+    @include grid-layout(3 1);
     background: #eee;
     padding: 0;
 }

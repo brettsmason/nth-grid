@@ -1,15 +1,12 @@
-@include test-module('@mixin grid()') {
+@include test-module('@mixin grid-layout()') {
     
-    @include test('grid() with default options') {
+    @include test('grid-layout() with default options') {
         @include assert('Default mixin output') {
             @include output {
-                @include grid();
+                @include grid-layout();
             }
 
             @include expect {
-                display: flex;
-                flex-flow: row wrap;
-
                 > :nth-child(3n + 1) {
                     width: calc(33.33333% - 0.66667rem);
                     margin-right: 1rem;
@@ -28,16 +25,13 @@
         }
     }
 
-    @include test('grid(1)') {
+    @include test('grid-layout(1)') {
         @include assert('Single column output') {
             @include output {
-                @include grid(1);
+                @include grid-layout(1);
             }
 
             @include expect {
-                display: flex;
-                flex-flow: row wrap;
-
                 > :nth-child(1n + 1) {
                     width: calc(100% - 0rem);
                     margin-right: 0;
@@ -46,16 +40,13 @@
         }
     }
 
-    @include test('grid(2 4 6 8, 2rem)') {
+    @include test('grid-layout(2 4 6 8, 2rem)') {
         @include assert('4 columns with custom gutter') {
             @include output {
-                @include grid(2 4 6 8, 2rem);
+                @include grid-layout(2 4 6 8, 2rem);
             }
 
             @include expect {
-                display: flex;
-                flex-flow: row wrap;
-
                 > :nth-child(4n + 1) {
                     width: calc(10% - 1.5rem);
                     margin-right: 2rem;
@@ -79,16 +70,13 @@
         }
     }
 
-    @include test('grid(1 2, $selector: ".my-cell")') {
+    @include test('grid-layout(1 2, $selector: ".my-cell")') {
         @include assert('2 columns with custom selector') {
             @include output {
-                @include grid(1 2, $selector: '.my-cell');
+                @include grid-layout(1 2, $selector: '.my-cell');
             }
 
             @include expect {
-                display: flex;
-                flex-flow: row wrap;
-
                 .my-cell:nth-child(2n + 1) {
                     width: calc(33.33333% - 0.5rem);
                     margin-right: 1rem;
@@ -102,16 +90,13 @@
         }
     }
 
-    @include test('grid(250px 2 10vw 3 1, 40px)') {
+    @include test('grid-layout(250px 2 10vw 3 1, 40px)') {
         @include assert('5 columns with mixed units') {
             @include output {
-                @include grid(250px 2 10vw 3 1, 40px);
+                @include grid-layout(250px 2 10vw 3 1, 40px);
             }
 
             @include expect {
-                display: flex;
-                flex-flow: row wrap;
-
                 > :nth-child(5n + 1) {
                     width: calc(250px - 32px);
                     margin-right: 40px;
@@ -140,16 +125,13 @@
         }
     }
 
-    @include test('grid(1 2 1, 0)') {
+    @include test('grid-layout(1 2 1, 0)') {
         @include assert('3 columns with no gutters') {
             @include output {
-                @include grid(1 2 1, 0);
+                @include grid-layout(1 2 1, 0);
             }
 
             @include expect {
-                display: flex;
-                flex-flow: row wrap;
-
                 > :nth-child(3n + 1) {
                     width: 25%;
                     margin-right: 0;
@@ -168,16 +150,13 @@
         }
     }
 
-    @include test('grid(0 0 1 0, 10px, $vertical: true)') {
+    @include test('grid-layout(0 0 1 0, 10px, $vertical: true)') {
         @include assert('Vertical 4 row layout with `shrink` behaviour') {
             @include output {
-                @include grid(0 0 1 0, 10px, $vertical: true);
+                @include grid-layout(0 0 1 0, 10px, $vertical: true);
             }
 
             @include expect {
-                display: flex;
-                flex-flow: column nowrap;
-
                 > :nth-child(4n + 1) {
                     height: auto;
                     margin-bottom: 10px;
