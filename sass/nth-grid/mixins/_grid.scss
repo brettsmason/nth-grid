@@ -35,3 +35,12 @@
     @include _grid-map($layout, $gutter, $selector, $vertical);
   }
 }
+
+// Base grid properties
+@mixin grid-base($behavior: row wrap) {
+  $direction: if(index($behavior, column) != null, column, row);
+  $wrap: if(index($behavior, nowrap) != null, nowrap, wrap);
+
+  display: flex;
+  flex-flow: $direction $wrap;
+}
