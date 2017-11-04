@@ -39,18 +39,20 @@ pre {
 ////////////////////////
 
 .grid-1 {
-    @include grid(2, 1rem);
+    @include grid;
+    @include grid-layout(2, 1rem);
     
     @media (min-width: 800px) {
-        @include grid(4, 1rem);
+        @include grid-layout(4, 1rem);
     }
 }
 
 .grid-2 {
-    @include grid(3, 15px);
+    @include grid;
+    @include grid-layout(3, 15px);
     
     @media (min-width: 800px) {
-        @include grid(250px 1 150px, 30px);
+        @include grid-layout(250px 1 150px, 30px);
     }
 }
 
@@ -64,6 +66,6 @@ pre {
         1: 2 3,
         2: 1
     );
-
-    @include grid($small-grid, 1rem);
+    @include grid;
+    @include grid-layout($small-grid, 1rem);
 }

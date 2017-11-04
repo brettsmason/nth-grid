@@ -1,11 +1,11 @@
-@mixin -grid-list(
+@mixin _grid-list(
     $layout,
     $gutter,
     $selector,
     $vertical
 ) {
   $measure: if($vertical, height, width);
-  $position: -gutter-position($vertical);
+  $position: _gutter-position($vertical);
 
   // Add up total of supplied values
   $total: sum($layout);
@@ -19,7 +19,7 @@
     $margin: if($i == $length, 0, $gutter);
 
     #{$selector}:nth-child(#{$length}n + #{$i}) {
-      #{$measure}: -cell-size($layout, $i, $gutter);
+      #{$measure}: _cell-size($layout, $i, $gutter);
       margin-#{$position}: $margin;
     }
   }

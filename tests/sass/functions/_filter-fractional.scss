@@ -1,0 +1,13 @@
+@include test-module('@functional _filter-fractional') {
+
+    @include test('Filter a list to return only unitless values') {
+
+        @include assert-equal(_filter-fractional(20px 1 2 3 4 65px), 1 2 3 4);
+        
+        @include assert-equal(_filter-fractional(1 2 3 4), 1 2 3 4);
+        
+        @include assert-equal(_filter-fractional(1px 2px 3px 4px), null);
+
+    }
+
+}

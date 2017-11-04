@@ -6,64 +6,45 @@
 ///
 /// @return {String}
 ///
-@function -cell-size($layout, $index, $gutter) {
+@function _cell-size($layout, $index, $gutter) {
+  $cell: _select-cell($layout, $index);
+  $total-cells: _total-cells($layout);
+  $fixed: _filter-static($layout);
+  $fluid: _filter-fractional($layout);
+  $total-fluid: length($fluid);
+  $gutter-allowance: _gutter-allowance($layout, $gutter);
+  $calc-required: _calc-required($cell, $gutter);
 
-  // Total number of cells in our layout.
-  // If this is a list this will be the list values added together,
-  // otherwise its the single value supplied.
-  $total: if(type-of($layout) == 'list', sum($layout), $layout);
-
-  // Length of the list if applicable
-  $length: length($layout);
-
-  // Item from the list matching the given index
-  $item: if(type-of($layout) == 'list', nth($layout, $index), 1);
-
-  // All fractional (unitless) values within $layout
-  $fractional: -filter-fractional($layout);
-
-  // All values in $layout with units
-  $static: -filter-static($layout, length($fractional), '-');
-
-  // Gutter value to subtract from the calc() declaration
-  $calc-gutter: if($gutter != 0, -calc-gutter($gutter, $layout), null);
-
-  // Zero the size ready...
   $size: 0;
 
-  // Shrink behaviour (auto width/height)
-  @if $item == 0 {
+  // Shrink behaviour
+  @if $cell == 0 {
     $size: auto;
   }
-
-  // Values with units
-  @else if not unitless($item) {
-    @if $calc-gutter {
-      $size: calc(#{$item} - #{$calc-gutter});
-    }
-    @else {
-      $size: #{$item};
-    }
+  // Cell size with a unit
+  @else if not unitless($cell) {
+    $size: $cell;
+  }
+  // Fractional cells
+  @else {
+    $size: 100% * $cell / $total-cells;
   }
 
-  // Values without units
-  @else {
-    @if $static {
-      @if $calc-gutter {
-        $size: calc(#{percentage($item / $total)} #{$static} - #{$calc-gutter});
+  // Append any static values
+  @if $fixed and unitless($cell) and $cell != 0 {
+      @each $value in $fixed {
+          $size: $size + ' - #{$value / $total-fluid}';
       }
-      @else {
-        $size: calc(#{percentage($item / $total)} #{$static});
-      }
-    }
-    @else {
-      @if $calc-gutter {
-        $size: calc(#{percentage($item / $total)} - #{$calc-gutter});
-      }
-      @else {
-        $size: percentage($item / $total);
-      }
-    }
+  }
+
+  // Append the gutter if used
+  @if $gutter-allowance and $cell != 0 {
+      $size: $size + ' - #{$gutter-allowance}';
+  }
+
+  // Wrap size in calc() if needed
+  @if $calc-required {
+      $size: calc(#{$size});
   }
 
   @return $size;

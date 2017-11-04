@@ -1,37 +1,8 @@
-@mixin grid(
-    $layout: $grid-layout,
-    $gutter: $grid-gutter,
-    $selector: $grid-selector,
-    $base: true,
-    $vertical: false,
-    $wrap: null
-) {
-  // Set some defaults for wrap if not given
-  @if $wrap == null and $vertical {
-    $wrap: false;
-  }
-  @else if $wrap == null and not $vertical {
-    $wrap: true;
-  }
-  @else {
-    $wrap: $wrap;
-  }
+// Base grid properties
+@mixin grid($behavior: row wrap) {
+  $direction: if(index($behavior, column) != null, column, row);
+  $wrap: if(index($behavior, nowrap) != null, nowrap, wrap);
 
-  @if $base {
-    $direction: if($vertical, column, row);
-    $wrap: if($wrap, wrap, nowrap);
-
-    display: flex;
-    flex-flow: $direction $wrap;
-  }
-
-  @if type-of($layout) == 'number' {
-    @include -grid-number($layout, $gutter, $selector, $vertical);
-  }
-  @else if type-of($layout) == 'list' {
-    @include -grid-list($layout, $gutter, $selector, $vertical);
-  }
-  @else if type-of($layout) == 'map' {
-    @include -grid-map($layout, $gutter, $selector, $vertical);
-  }
+  display: flex;
+  flex-flow: $direction $wrap;
 }

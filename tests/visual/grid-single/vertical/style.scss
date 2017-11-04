@@ -37,13 +37,16 @@ pre {
 ////////////////////////
 
 .grid-1 {
-    @include grid(1, 1rem, $vertical: true);
+    @include grid(column nowrap);
+    @include grid-layout(1, 1rem, $vertical: true);
 }
 
 .grid-2 {
-    @include grid(4, 1rem, $vertical: true);
+    @include grid(column nowrap);
+    @include grid-layout(4, 1rem, $vertical: true);
 }
 
 .grid-3 {
-    @include grid(3, 0, $vertical: true);
+    @include grid(column nowrap);
+    @include grid-layout(3, 0, $vertical: true);
 }

@@ -1,0 +1,16 @@
+@mixin grid-layout(
+  $layout: $grid-layout,
+  $gutter: $grid-gutter,
+  $selector: $grid-selector,
+  $vertical: false
+) {
+  @if type-of($layout) == 'number' {
+    @include _grid-number($layout, $gutter, $selector, $vertical);
+  }
+  @else if type-of($layout) == 'list' {
+    @include _grid-list($layout, $gutter, $selector, $vertical);
+  }
+  @else if type-of($layout) == 'map' {
+    @include _grid-map($layout, $gutter, $selector, $vertical);
+  }
+}
