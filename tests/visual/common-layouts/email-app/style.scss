@@ -50,7 +50,7 @@ body {
 }
 
 .message {
-    @include grid(column nowrap);
+    @include grid(column, nowrap);
     @include grid-layout(90vw 10vh, $vertical: true);
     max-height: 100%;
 }

@@ -40,7 +40,7 @@ $right: (
 }
 
 .left {
-    @include grid(column wrap);
+    @include grid(column, wrap);
     @include grid-layout(1 1, 40px);
     @include grid-layout($left, 40px, $vertical: true);
     flex-wrap: wrap;
