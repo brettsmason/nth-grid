@@ -1,19 +1,19 @@
 {
   "name": "nth-grid",
   "version": "1.0.0",
-  "description": "A lightweight, semantic grid mixin library for creating beautiful horizontal and vertical grids",
+  "description": "A lightweight flexbox grid mixin library for creating beautiful horizontal and vertical grids",
   "main": "nth-grid.scss",
   "repository": {
     "type": "git",
-    "url": "git+https://brettsmason@bitbucket.org/brettsmason/nth-grid.git"
+    "url": "https://github.com/brettsmason/nth-grid"
   },
   "keywords": [
     "grid",
     "layout",
     "sass",
     "scss",
+    "flexbox",
     "semantic",
-    "grid",
     "framework"
   ],
   "scripts": {
@@ -35,5 +35,5 @@
   },
   "author": "Brett Mason",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/brettsmason/nth-grid#readme"
+  "homepage": "https://github.com/brettsmason/nth-grid"
 }
