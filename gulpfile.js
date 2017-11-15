@@ -6,7 +6,7 @@ var rimraf = require('rimraf');
 var $ = plugins();
 
 // Build the SCSS into CSS
-gulp.task('build', gulp.series(clean, gulp.parallel(copy, sass)));
+gulp.task('build', gulp.series(clean, gulp.parallel(sass)));
 
 // Build the SCSS, watch for changes.
 gulp.task('default',
@@ -14,13 +14,13 @@ gulp.series('build', server, watch));
 
 // Clean the dist folder
 function clean(done) {
-  rimraf('dist', done);
+  rimraf('tests/visual/**/*.css', done);
 }
 
 // Copy demo index file
 function copy() {
   return gulp.src(['tests/visual/**/*.html'])
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('tests/visual'));
 }
 
 function sass() {
@@ -32,14 +32,16 @@ function sass() {
     .pipe($.autoprefixer({
       browsers: [ "last 2 versions", "ie >= 10", "ios >= 7" ]
     }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(function (file) {
+      return file.base;
+    }))
     .pipe(browser.reload({ stream: true }));
   }
 
 // Start a server with BrowserSync to preview the site in
 function server(done) {
   browser.init({
-    server: 'dist',
+    server: 'tests/visual',
     port: 8000,
     directory: true
   });
