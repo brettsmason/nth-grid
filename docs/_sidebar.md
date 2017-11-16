@@ -1,10 +1,11 @@
-- Getting started
-  - [Quick start](quickstart.md)
+- [Getting Started](/)
 
-- Functions
-  - [Functions](/functions/)
+- [The Basics](/basics/)
 
-Mixins
-  - [Mixins](/mixins/)
+- [Settings](/settings/)
 
-- Examples
+- [Functions](/functions/)
+
+- [Mixins](/mixins/)
+
+- [Examples](/examples/)

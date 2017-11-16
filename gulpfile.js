@@ -59,7 +59,7 @@ function watchVisual() {
 
 // Compile Docs Sass files
 function sassDocs() {
-  return gulp.src('docs/assets/scss/**/*.scss')
+  return gulp.src('docs/assets/sass/**/*.scss')
     .pipe($.sass({
       includePaths: ['sass'],
       outputStyle: 'expanded'
@@ -82,7 +82,7 @@ function serverDocs(done) {
 
 // Watch for changes
 function watchDocs() {
-  gulp.watch(['sass/**/*.scss', 'docs/assets/scss/**/*.scss']).on('all', sassDocs);
+  gulp.watch(['sass/**/*.scss', 'docs/assets/sass/**/*.scss']).on('all', sassDocs);
   gulp.watch(['docs/**/*.md', 'docs/**/*.html']).on('all', gulp.series(browser.reload));
 }
 
