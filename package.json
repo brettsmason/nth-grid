@@ -17,8 +17,8 @@
     "framework"
   ],
   "scripts": {
-    "start": "gulp",
-    "build": "gulp build --production",
+    "docs": "gulp docs",
+    "visual": "gulp visual",
     "test": "mocha tests/sass/index.js"
   },
   "devDependencies": {
