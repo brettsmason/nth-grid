@@ -1,0 +1,342 @@
+/**
+ * Nth grid by Brett Mason
+ * Version 1.0.0
+ * brettmason.co.uk
+ * Licensed under MIT Open Source
+ */
+.grid-item {
+  background: #7FDBFF;
+  margin-bottom: 1rem;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+}
+
+.grid-1 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.grid-1 > :nth-child(3n + 1) {
+  width: calc(16.66667% - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-1 > :nth-child(3n + 2) {
+  width: calc(33.33333% - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-1 > :nth-child(3n + 3) {
+  width: calc(50% - 0.66667rem);
+  margin-right: 0;
+}
+
+.grid-2 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.grid-2 > :nth-child(5n + 1) {
+  width: calc(33.33333% - 0.8rem);
+  margin-right: 1rem;
+}
+
+.grid-2 > :nth-child(5n + 2) {
+  width: calc(26.66667% - 0.8rem);
+  margin-right: 1rem;
+}
+
+.grid-2 > :nth-child(5n + 3) {
+  width: calc(20% - 0.8rem);
+  margin-right: 1rem;
+}
+
+.grid-2 > :nth-child(5n + 4) {
+  width: calc(13.33333% - 0.8rem);
+  margin-right: 1rem;
+}
+
+.grid-2 > :nth-child(5n + 5) {
+  width: calc(6.66667% - 0.8rem);
+  margin-right: 0;
+}
+
+.grid-3 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.grid-3 > :nth-child(3n + 1) {
+  width: 16.66667%;
+  margin-right: 0;
+}
+
+.grid-3 > :nth-child(3n + 2) {
+  width: 50%;
+  margin-right: 0;
+}
+
+.grid-3 > :nth-child(3n + 3) {
+  width: 33.33333%;
+  margin-right: 0;
+}
+
+.grid-4 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.grid-4 > :nth-child(3n + 1) {
+  width: calc(100% - 200px - 20vw - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-4 > :nth-child(3n + 2) {
+  width: calc(200px - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-4 > :nth-child(3n + 3) {
+  width: calc(20vw - 0.66667rem);
+  margin-right: 0;
+}
+
+.grid-5 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.grid-5 > :nth-child(4n + 1) {
+  width: calc(200px - 0.75rem);
+  margin-right: 1rem;
+}
+
+.grid-5 > :nth-child(4n + 2) {
+  width: calc(33.33333% - 100px - 50px - 0.75rem);
+  margin-right: 1rem;
+}
+
+.grid-5 > :nth-child(4n + 3) {
+  width: calc(100px - 0.75rem);
+  margin-right: 1rem;
+}
+
+.grid-5 > :nth-child(4n + 4) {
+  width: calc(66.66667% - 100px - 50px - 0.75rem);
+  margin-right: 0;
+}
+
+.grid-6 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.grid-6 > :nth-child(6n + 1) {
+  width: calc(12.5% - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-6 > :nth-child(6n + 2) {
+  width: calc(62.5% - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-6 > :nth-child(6n + 3) {
+  width: calc(25% - 0.66667rem);
+  margin-right: 0;
+}
+
+.grid-6 > :nth-child(6n + 4) {
+  width: calc(100% - 0rem);
+  margin-right: 0;
+}
+
+.grid-6 > :nth-child(6n + 5) {
+  width: calc(50% - 0.5rem);
+  margin-right: 1rem;
+}
+
+.grid-6 > :nth-child(6n + 6) {
+  width: calc(50% - 0.5rem);
+  margin-right: 0;
+}
+
+.grid-7 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  height: 800px;
+  background: #fff;
+  padding: 0;
+}
+
+.grid-7 > :nth-child(4n + 1) {
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.grid-7 > :nth-child(4n + 2) {
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.grid-7 > :nth-child(4n + 3) {
+  height: calc(100% - 0.75rem);
+  margin-bottom: 1rem;
+}
+
+.grid-7 > :nth-child(4n + 4) {
+  height: auto;
+  margin-bottom: 0;
+}
+
+.grid-7 .grid-main {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 0;
+  background: #fff;
+  margin-bottom: 0;
+}
+
+.grid-7 .grid-main > :nth-child(2n + 1) {
+  width: calc(75% - 0.5rem);
+  margin-right: 1rem;
+}
+
+.grid-7 .grid-main > :nth-child(2n + 2) {
+  width: calc(25% - 0.5rem);
+  margin-right: 0;
+}
+
+.grid-8 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  height: 100vh;
+}
+
+.grid-8 > :nth-child(3n + 1) {
+  width: calc(170px - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-8 > :nth-child(3n + 2) {
+  width: calc(300px - 0.66667rem);
+  margin-right: 1rem;
+}
+
+.grid-8 > :nth-child(3n + 3) {
+  width: calc(100% - 170px - 300px - 0.66667rem);
+  margin-right: 0;
+}
+
+.grid-8 .nav {
+  background: #eee;
+  padding: 2rem;
+}
+
+.grid-8 .summary {
+  background: #eee;
+  overflow-y: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.grid-8 .summary > :nth-child(2n + 1) {
+  height: calc(50px - 0.5rem);
+  margin-bottom: 1rem;
+}
+
+.grid-8 .summary > :nth-child(2n + 2) {
+  height: calc(90vh - 0.5rem);
+  margin-bottom: 0;
+}
+
+.grid-8 .preview {
+  padding: 1rem;
+}
+
+.grid-8 .preview + .preview {
+  border-bottom: 1px solid #ddd;
+}
+
+.grid-8 .scroll {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.grid-8 .message {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  max-height: 100%;
+}
+
+.grid-8 .message > :nth-child(2n + 1) {
+  height: calc(90vw - 0.5rem);
+  margin-bottom: 1rem;
+}
+
+.grid-8 .message > :nth-child(2n + 2) {
+  height: calc(10vh - 0.5rem);
+  margin-bottom: 0;
+}
+
+.grid-8 .details {
+  padding: 2rem;
+}
+
+.grid-8 .sort {
+  padding: 2rem;
+}
+
+.grid-8 .reply {
+  padding: 1rem;
+  background: #ddd;
+}
+
+.grid-8 .reply input {
+  width: 100%;
+}
