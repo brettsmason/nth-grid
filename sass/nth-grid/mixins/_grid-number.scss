@@ -8,13 +8,20 @@
   $position: _gutter-position($vertical);
 
   @if unitless($layout) {
-    @for $i from 1 through $layout {
-      // Margin to apply. Set to 0 for end of row/column.
-      $margin: if($i == $layout, 0, $gutter);
+    @if $layout != 1 {
+      #{$selector}:nth-child(n) {
+        #{$measure}: _cell-size($layout, 1, $gutter);
+        margin-#{$position}: $gutter;
+      }
 
-      #{$selector}:nth-child(#{$layout}n + #{$i}) {
-        #{$measure}: _cell-size($layout, $i, $gutter);
-        margin-#{$position}: $margin;
+      #{$selector}:nth-child(#{$layout}n) {
+        margin-#{$position}: 0;
+      }
+    }
+    @else {
+      #{$selector}:nth-child(n) {
+        #{$measure}: 100%;
+        margin-#{$position}: 0;
       }
     }
   }
