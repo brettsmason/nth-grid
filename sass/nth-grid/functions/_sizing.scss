@@ -27,7 +27,7 @@
   }
   // Fractional cells
   @else {
-    $size: 100% * $cell / $total-cells;
+    $size: 99.9% * $cell / $total-cells;
   }
 
   // Append any static values
