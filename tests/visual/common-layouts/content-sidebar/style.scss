@@ -29,7 +29,7 @@ div {
     background: #eee;
     padding: 0;
 
-    > {
+    > * {
         @include nth-grid(0 0 6 0, 1rem, $vertical: true);
     }
 }
@@ -39,7 +39,7 @@ div {
     background: #eee;
     padding: 0;
 
-    > {
+    > * {
         @include nth-grid(3 1);
     }
 }

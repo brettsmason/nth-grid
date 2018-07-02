@@ -37,7 +37,7 @@ $right: (
     @include grid;
     height: 800px;
 
-    > {
+    > * {
         @include nth-grid(1 1, 40px);
     }
 }
@@ -45,7 +45,7 @@ $right: (
 .left {
     @include grid(column, wrap);
 
-    > {
+    > * {
         @include nth-grid(1 1, 40px);
         @include nth-grid($left, 40px, $vertical: true);
     }
@@ -54,7 +54,7 @@ $right: (
 .right {
     @include grid;
 
-    > {
+    > * {
         @include nth-grid(1 1, 40px, $vertical: true);
         @include nth-grid($right, 40px);
     }

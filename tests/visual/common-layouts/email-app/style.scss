@@ -22,7 +22,7 @@ body {
     @include grid;
     height: 100vh;
 
-    > {
+    > * {
         @include nth-grid(200px 400px 1, 1rem);
     }
 }
@@ -37,7 +37,7 @@ body {
     overflow-y: hidden;
     @include grid;
 
-    > {
+    > * {
         @include nth-grid(50px 90vh, $vertical: true);
     }
 }
@@ -59,7 +59,7 @@ body {
     @include grid(column, nowrap);
     max-height: 100%;
 
-    > {
+    > * {
         @include nth-grid(90vw 10vh, $vertical: true);
     }
 }

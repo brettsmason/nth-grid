@@ -42,7 +42,7 @@ pre {
     );
     @include grid;
 
-    > {
+    > * {
         @include nth-grid($grid-1, 1rem);
     }
 }
@@ -55,7 +55,7 @@ pre {
     );
     @include grid;
 
-    > {
+    > * {
         @include nth-grid($grid-2, 1rem);
     }
 }
@@ -68,7 +68,7 @@ pre {
     );
     @include grid;
 
-    > {
+    > * {
         @include nth-grid($grid-3, 0);
     }
 }
@@ -81,7 +81,7 @@ pre {
     );
     @include grid;
 
-    > {
+    > * {
         @include nth-grid($grid-4, 1rem);
     }
 }
