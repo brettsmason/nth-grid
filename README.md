@@ -34,7 +34,7 @@ Lets start off with a simple 3 column blog layout using the following markup:
 Firstly we apply our base flexbox properties to the container:
 ```
 .page {
-    @include grid(row, wrap);
+    @include nth-grid-base(row, wrap);
 }
 ```
 
@@ -45,7 +45,7 @@ Again we apply this directly to the parent container like so:
 
 ```
 .page {
-    @include grid(row, wrap);
+    @include nth-grid-base(row, wrap);
     @include nth-grid(200px 2 1, 1rem);
 }
 ```

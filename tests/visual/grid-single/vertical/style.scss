@@ -37,7 +37,7 @@ pre {
 ////////////////////////
 
 .grid-1 {
-    @include grid(column, nowrap);
+    @include nth-grid-base(column, nowrap);
 
     > * {
         @include nth-grid(1, 1rem, $vertical: true);
@@ -45,7 +45,7 @@ pre {
 }
 
 .grid-2 {
-    @include grid(column, nowrap);
+    @include nth-grid-base(column, nowrap);
 
     > * {
         @include nth-grid(4, 1rem, $vertical: true);
@@ -53,7 +53,7 @@ pre {
 }
 
 .grid-3 {
-    @include grid(column, nowrap);
+    @include nth-grid-base(column, nowrap);
 
     > * {
         @include nth-grid(3, 0, $vertical: true);

@@ -35,7 +35,7 @@ pre {
 ////////////////////////
 
 .grid-1 {
-    @include grid;
+    @include nth-grid-base;
 
     > * {
         @include nth-grid(1, 1rem);
@@ -43,7 +43,7 @@ pre {
 }
 
 .grid-2 {
-    @include grid;
+    @include nth-grid-base;
 
     > * {
         @include nth-grid(4, 1rem);
@@ -51,7 +51,7 @@ pre {
 }
 
 .grid-3 {
-    @include grid;
+    @include nth-grid-base;
 
     > * {
         @include nth-grid(12, 1rem);
@@ -59,7 +59,7 @@ pre {
 }
 
 .grid-4 {
-    @include grid;
+    @include nth-grid-base;
 
     > * {
         @include nth-grid(2, 0);
@@ -67,7 +67,7 @@ pre {
 }
 
 .grid-5 {
-    @include grid;
+    @include nth-grid-base;
 
     > * {
         @include nth-grid(3, 0);

@@ -24,7 +24,7 @@ div {
 ////////////////////////
 
 .page {
-    @include grid(column, nowrap);
+    @include nth-grid-base(column, nowrap);
     height: 100vh;
     background: #eee;
     padding: 0;
@@ -35,7 +35,7 @@ div {
 }
 
 .main {
-    @include grid;
+    @include nth-grid-base;
     background: #eee;
     padding: 0;
 

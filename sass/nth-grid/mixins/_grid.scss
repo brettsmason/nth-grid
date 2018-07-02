@@ -1,8 +1,0 @@
-// Base grid properties
-@mixin grid($direction: row, $wrap: wrap) {
-  $direction: if($direction != row, column, row);
-  $wrap: if($wrap != wrap, nowrap, wrap);
-
-  display: flex;
-  flex-flow: $direction $wrap;
-}

@@ -19,7 +19,7 @@ body {
 ////////////////////////
 
 .app {
-    @include grid;
+    @include nth-grid-base;
     height: 100vh;
 
     > * {
@@ -35,7 +35,7 @@ body {
 .summary {
     background: #eee;
     overflow-y: hidden;
-    @include grid;
+    @include nth-grid-base;
 
     > * {
         @include nth-grid(50px 90vh, $vertical: true);
@@ -56,7 +56,7 @@ body {
 }
 
 .message {
-    @include grid(column, nowrap);
+    @include nth-grid-base(column, nowrap);
     max-height: 100%;
 
     > * {

@@ -2,9 +2,9 @@
 
 Nth Grid included 2 powerful mixins to use in your projects.
 
-## grid()
+## nth-grid-base()
 
-`grid()` sets the base flexbox properties to your grid.
+`nth-grid-base()` sets the base flexbox properties to your grid.
 
 ### Arguements
 
@@ -16,24 +16,25 @@ Nth Grid included 2 powerful mixins to use in your projects.
 ### Example
 ```scss
 .my-grid {
-    @include grid(column, nowrap);
+    @include nth-grid-base(column, nowrap);
 }
 ```
 ---
 
 ## nth-grid()
 
-`nth-grid()` is where the real magic happens.  
-Here you set the layout, the gutter, the child selector and set if its a vertical grid or not.
+`nth-grid()` is where the real magic happens.
+Here you set the layout, the gutter, the selector type (`nth-child` or `nth-of-type`), set if its a vertical grid or not and if the grid should continue looping the same layout.
 
 ### Arguements
 
 | Parameter  | Type            | Default Value  | Description                                                                  |
 |------------|-----------------|----------------|------------------------------------------------------------------------------|
-| $layout    | Number/List/Map | $nth-grid   | The column (or row if $vertical is `true`) size. Supports a single number which outputs that number of equal columns, a list or a map. Mixed units eg `px`, `em` are also supported. |
+| $layout    | Number/List/Map | $grid-layout   | The column (or row if $vertical is `true`) size. Supports a single number which outputs that number of equal columns, a list or a map. Mixed units eg `px`, `em` are also supported. |
 | $gutter    | Number          | $grid-gutter   | The size of the gutter between cells. |
-| $selector  | String          | $grid-selector | The grid item selector. Accepts a class eg `.grid-item` or simply an element eg `div`. |
-| $vertical  | Boolean         | false          | Set to `true` to output heights rather than widths. |
+| $selector  | Keyword         | $grid-selector | The grid item selector. Accepts a class eg `.grid-item` or simply an element eg `div`. |
+| $vertical  | Boolean         | $grid-vertical | Set to `true` to output heights rather than widths. |
+| $loop      | Boolean         | $grid-loop     | Set to `false` to stop the grid looping infinitely. |
 
 ### $layout
 
@@ -44,13 +45,19 @@ Some examples:
 
 ```scss
 // Outputs 5 equal width columns
-@include nth-grid(5);
+.my-grid > * {
+    @include nth-grid(5);
+}
 
 // List: 3 columns - 25%, 50%, 25%
-@include nth-grid(1 2 1);
+.my-grid > * {
+    @include nth-grid(1 2 1);
+}
 
 // List: 4 columns
-@include nth-grid(1 200px 2 400px);
+.my-grid > * {
+    @include nth-grid(1 200px 2 400px);
+}
 
 // Map
 $my-grid(
@@ -58,5 +65,8 @@ $my-grid(
     2: 200px 1 50px 100px,
     3: 3 2 1
 );
-@include nth-grid($my-grid);
+
+.my-grid > * {
+    @include nth-grid($my-grid);
+}
 ```

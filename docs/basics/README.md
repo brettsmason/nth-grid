@@ -15,7 +15,7 @@ Firstly we apply our base flexbox properties to the container:
 
 ```scss
 .page {
-    @include grid(row, wrap);
+    @include nth-grid-base(row, wrap);
 }
 ```
 
@@ -25,8 +25,11 @@ Now we have the base properties we need to specify the column widths. Again we a
 
 ```scss
 .page {
-    @include grid(row, wrap);
-    @include nth-grid(200px 2 1, 1rem);
+    @include nth-grid-base(row, wrap);
+
+    > * {
+        @include nth-grid(200px 2 1, 1rem);
+    }
 }
 ```
 The above code sets the first column (`.sidebar-left`) to 200px and the 2nd column (`.content`) to twice the size of the 3rd column (`.sidebar-right`). Also included is a 1rem gutter between each column.
