@@ -22,16 +22,16 @@
     "test": "mocha tests/sass/index.js"
   },
   "devDependencies": {
-    "browser-sync": "^2.10.0",
+    "browser-sync": "^2.24.5",
     "gulp": "gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean-css": "^3.3.1",
-    "gulp-cli": "^1.2.1",
-    "gulp-load-plugins": "^1.1.0",
-    "gulp-sass": "^2.1.0",
-    "mocha": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-cli": "^2.0.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^4.0.1",
+    "mocha": "^5.2.0",
     "rimraf": "^2.6.2",
-    "sass-true": "^3.0.1"
+    "sass-true": "^4.0.0"
   },
   "author": "Brett Mason",
   "license": "MIT",
