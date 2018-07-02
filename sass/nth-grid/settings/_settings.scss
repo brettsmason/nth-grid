@@ -5,4 +5,10 @@ $grid-layout: 3 !default;
 $grid-gutter: 1rem !default;
 
 /// Default grid selector
-$grid-selector: '>' !default;
+$grid-selector: child !default;
+
+// Default grid direction
+$grid-vertical: false !default;
+
+// Default grid loop
+$grid-loop: true !default;

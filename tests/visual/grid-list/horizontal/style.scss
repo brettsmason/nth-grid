@@ -35,26 +35,41 @@ pre {
 ////////////////////////
 
 .grid-1 {
-    @include grid;
-    @include grid-layout(1 2 3, 1rem);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(1 2 3, 1rem);
+    }
 }
 
 .grid-2 {
-    @include grid;
-    @include grid-layout(6 5 4 3 2 1, 1rem);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(6 5 4 3 2 1, 1rem);
+    }
 }
 
 .grid-3 {
-    @include grid;
-    @include grid-layout(1 3 2, 0);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(1 3 2, 0);
+    }
 }
 
 .grid-4 {
-    @include grid;
-    @include grid-layout(1 200px 20vw, 1rem);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(1 200px 20vw, 1rem);
+    }
 }
 
 .grid-5 {
-    @include grid;
-    @include grid-layout(200px 1 100px 2, 1rem);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(200px 1 100px 2, 1rem);
+    }
 }

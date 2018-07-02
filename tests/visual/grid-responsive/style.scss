@@ -39,20 +39,26 @@ pre {
 ////////////////////////
 
 .grid-1 {
-    @include grid;
-    @include grid-layout(2, 1rem);
-    
-    @media (min-width: 800px) {
-        @include grid-layout(4, 1rem);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(2, 1rem);
+        
+        @media (min-width: 800px) {
+            @include nth-grid(4, 1rem);
+        }
     }
 }
 
 .grid-2 {
-    @include grid;
-    @include grid-layout(3, 15px);
-    
-    @media (min-width: 800px) {
-        @include grid-layout(250px 1 150px, 30px);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(3, 15px);
+        
+        @media (min-width: 800px) {
+            @include nth-grid(250px 1 150px, 30px);
+        }
     }
 }
 
@@ -66,6 +72,9 @@ pre {
         1: 2 3,
         2: 1
     );
-    @include grid;
-    @include grid-layout($small-grid, 1rem);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid($small-grid, 1rem);
+    }
 }

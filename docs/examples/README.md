@@ -23,8 +23,11 @@
 
 ```scss
 .grid-1 {
-    @include grid;
-    @include grid-layout(1 2 3, 1rem);
+    @include nth-grid-base;
+
+    .grid-item {
+        @include nth-grid(1 2 3, 1rem);
+    }
 }
 ```
 ---
@@ -54,8 +57,11 @@
 
 ```scss
 .grid-2 {
-    @include grid;
-    @include grid-layout(5 4 3 2 1, 1rem);
+    @include nth-grid-base;
+
+    .grid-item {
+        @include nth-grid(5 4 3 2 1, 1rem);
+    }
 }
 ```
 ---
@@ -85,8 +91,11 @@
 
 ```scss
 .grid-3 {
-    @include grid;
-    @include grid-layout(1 3 2, 0);
+    @include nth-grid-base;
+
+    .grid-item {
+        @include nth-grid(1 3 2, 0);
+    }
 }
 ```
 ---
@@ -116,8 +125,11 @@
 
 ```scss
 .grid-4 {
-    @include grid;
-    @include grid-layout(1 200px 20vw, 1rem);
+    @include nth-grid-base;
+
+    .grid-item {
+        @include nth-grid(1 200px 20vw, 1rem);
+    }
 }
 ```
 ---
@@ -147,8 +159,11 @@
 
 ```scss
 .grid-5 {
-    @include grid;
-    @include grid-layout(200px 1 100px 2, 1rem);
+    @include nth-grid-base;
+
+    .grid-item {
+        @include nth-grid(200px 1 100px 2, 1rem);
+    }
 }
 ```
 ---
@@ -183,8 +198,11 @@
         2: 1,
         3: 1 1
     );
-    @include grid;
-    @include grid-layout($grid-1, 1rem);
+    @include nth-grid-base;
+
+    .grid-item {
+        @include nth-grid($grid-1, 1rem);
+    }
 }
 ```
 ---
@@ -201,12 +219,18 @@
 
 ```scss
 .grid-7 {
-    @include grid(column, nowrap);
-    @include grid-layout(0 0 6 0, 1rem, $vertical: true);
+    @include nth-grid-base(column, nowrap);
+
+    > .grid-item {
+        @include nth-grid(0 0 6 0, 1rem, $vertical: true);
+    }
 
     .grid-main {
-        @include grid(row, wrap);
-        @include grid-layout(3 1);
+        @include nth-grid-base(row, wrap);
+
+        > .grid-item {
+            @include nth-grid(3 1);
+        }
     }
 }
 ```
@@ -281,9 +305,12 @@
 
 ```scss
 .grid-8 {
-    @include grid;
-    @include grid-layout(170px 300px 1, 1rem);
+    @include nth-grid-base;
     height: 100vh;
+
+    > * {
+        @include nth-grid(170px 300px 1, 1rem);
+    }
 
     .nav {
         background: #eee;
@@ -293,8 +320,11 @@
     .summary {
         background: #eee;
         overflow-y: hidden;
-        @include grid;
-        @include grid-layout(50px 90vh, $vertical: true);
+        @include nth-grid-base;
+
+        > * {
+            @include nth-grid(50px 90vh, $vertical: true);
+        }
     }
     
     .preview {
@@ -311,9 +341,12 @@
     }
     
     .message {
-        @include grid(column, nowrap);
-        @include grid-layout(90vw 10vh, $vertical: true);
+        @include nth-grid-base(column, nowrap);
         max-height: 100%;
+
+        > * {
+            @include nth-grid(90vw 10vh, $vertical: true);
+        }
     }
     
     .details {

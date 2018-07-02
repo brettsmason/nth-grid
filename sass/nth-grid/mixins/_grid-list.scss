@@ -1,11 +1,13 @@
-@mixin _grid-list(
+@mixin _nth-grid-list(
     $layout,
     $gutter,
     $selector,
-    $vertical
+    $vertical,
+    $loop
 ) {
   $measure: if($vertical, height, width);
   $position: _gutter-position($vertical);
+  $nth-selector: if($selector == child, nth-child, nth-of-type);
 
   // Add up total of supplied values
   $total: sum($layout);
@@ -18,7 +20,10 @@
     // Margin to apply. Set to 0 for end of row.
     $margin: if($i == $length, 0, $gutter);
 
-    #{$selector}:nth-child(#{$length}n + #{$i}) {
+    
+    $n: if($loop, '#{$length}n + #{$i}', '#{$i}');
+
+    &:#{$nth-selector}(#{$n}) {
       #{$measure}: _cell-size($layout, $i, $gutter);
       margin-#{$position}: $margin;
     }

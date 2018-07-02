@@ -1,0 +1,24 @@
+/// Create a complex grid using the power of `nth-child`/`nth-of-type`.
+///
+/// @param {Number|List|Map} $layout [$nth-grid] - provide a layout to use. Accepts a number (for equal width), a list (for multi size layouts) or a map for complex multi row layouts.
+/// @param {Number} $gutter [$grid-gutter] - The size of the gutter to apply.
+/// @param {Keyword} $selector [$grid-selector] - Set to `child` for `nth-child` or `type` for `nth-of-type`.
+/// @param {Boolean} $vertical [$grid-vertical] - Set to true to use height rather than width.
+/// @param {Boolean} $loop [$grid-loop] - Should we repeat the grid look indefinately.
+@mixin nth-grid(
+  $layout: $nth-grid,
+  $gutter: $grid-gutter,
+  $selector: $grid-selector,
+  $vertical: $grid-vertical,
+  $loop: $grid-loop
+) {
+  @if type-of($layout) == 'number' {
+    @include _nth-grid-number($layout, $gutter, $selector, $vertical);
+  }
+  @else if type-of($layout) == 'list' {
+    @include _nth-grid-list($layout, $gutter, $selector, $vertical, $loop);
+  }
+  @else if type-of($layout) == 'map' {
+    @include _nth-grid-map($layout, $gutter, $selector, $vertical, $loop);
+  }
+}

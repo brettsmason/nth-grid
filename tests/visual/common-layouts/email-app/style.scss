@@ -19,9 +19,12 @@ body {
 ////////////////////////
 
 .app {
-    @include grid;
-    @include grid-layout(200px 400px 1, 1rem);
+    @include nth-grid-base;
     height: 100vh;
+
+    > * {
+        @include nth-grid(200px 400px 1, 1rem);
+    }
 }
 
 .nav {
@@ -32,8 +35,11 @@ body {
 .summary {
     background: #eee;
     overflow-y: hidden;
-    @include grid;
-    @include grid-layout(50px 90vh, $vertical: true);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(50px 90vh, $vertical: true);
+    }
 }
 
 .preview {
@@ -50,9 +56,12 @@ body {
 }
 
 .message {
-    @include grid(column, nowrap);
-    @include grid-layout(90vw 10vh, $vertical: true);
+    @include nth-grid-base(column, nowrap);
     max-height: 100%;
+
+    > * {
+        @include nth-grid(90vw 10vh, $vertical: true);
+    }
 }
 
 .details {

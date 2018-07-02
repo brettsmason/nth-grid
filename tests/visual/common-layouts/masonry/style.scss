@@ -34,19 +34,28 @@ $right: (
 );
 
 .grid {
-    @include grid;
-    @include grid-layout(1 1, 40px);
+    @include nth-grid-base;
     height: 800px;
+
+    > * {
+        @include nth-grid(1 1, 40px);
+    }
 }
 
 .left {
-    @include grid(column, wrap);
-    @include grid-layout(1 1, 40px);
-    @include grid-layout($left, 40px, $vertical: true);
+    @include nth-grid-base(column, wrap);
+
+    > * {
+        @include nth-grid(1 1, 40px);
+        @include nth-grid($left, 40px, $vertical: true);
+    }
 }
 
 .right {
-    @include grid;
-    @include grid-layout(1 1, 40px, $vertical: true);
-    @include grid-layout($right, 40px);
+    @include nth-grid-base;
+
+    > * {
+        @include nth-grid(1 1, 40px, $vertical: true);
+        @include nth-grid($right, 40px);
+    }
 }

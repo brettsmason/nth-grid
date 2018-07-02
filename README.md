@@ -16,7 +16,7 @@ You are free to use your own markup, and there are no negative margins, `.last` 
 - And much more...
 
 ## What's included?
-Nth Grid comes with just 2 mixins: `grid()` and `grid-layout()`.
+Nth Grid comes with just 2 mixins: `grid()` and `nth-grid()`.
 Also included is `repeat()` - a function for creating repeating patterns. The syntax is the same as the CSS Grid function.
 
 ## How do I get started?
@@ -34,7 +34,7 @@ Lets start off with a simple 3 column blog layout using the following markup:
 Firstly we apply our base flexbox properties to the container:
 ```
 .page {
-    @include grid(row, wrap);
+    @include nth-grid-base(row, wrap);
 }
 ```
 
@@ -45,12 +45,12 @@ Again we apply this directly to the parent container like so:
 
 ```
 .page {
-    @include grid(row, wrap);
-    @include grid-layout(200px 2 1, 1rem);
+    @include nth-grid-base(row, wrap);
+    @include nth-grid(200px 2 1, 1rem);
 }
 ```
 
 The above code sets column 1 to 200px and column 2 to twice the size of column 3. Also included is a `1rem` gutter between each column.
 
-`grid-layout()` supports a single value, a list of values or a map.
-A single value, eg `grid-layout(3, 1rem)` will output 3 equal columns with a `1rem` gutter.
+`nth-grid()` supports a single value, a list of values or a map.
+A single value, eg `nth-grid(3, 1rem)` will output 3 equal columns with a `1rem` gutter.

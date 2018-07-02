@@ -4,7 +4,7 @@ Nth Grid only has 3 variables you can configure. These variables set the default
 Simply declare them in your project with your own values to overwrite the defaults.
 
 ```scss
-$grid-layout: 3;
+$nth-grid: 3;
 
 /// Default grid gutter
 $grid-gutter: 1rem;

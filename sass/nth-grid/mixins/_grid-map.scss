@@ -1,11 +1,13 @@
-@mixin _grid-map(
+@mixin _nth-grid-map(
     $layout,
     $gutter,
     $selector,
-    $vertical
+    $vertical,
+    $loop
 ) {
   $measure: if($vertical, height, width);
   $position: _gutter-position($vertical);
+  $nth-selector: if($selector == child, nth-child, nth-of-type);
 
   $map-values: map-values($layout);
   $map-total: 0;
@@ -27,10 +29,13 @@
       // Margin to apply. Set to 0 for end of row
       $margin: if($i == $length, 0, $gutter);
 
+      // If we need to loop add the correct nth index.
+      $n: if($loop, '#{$map-total}n + #{$global-index}', '#{$global-index}');
+
       // Calculation for the calc() gutter subtraction
       $calc-gutter: _calc-gutter($gutter, $length);
 
-      #{$selector}:nth-child(#{$map-total}n + #{$global-index}) {
+      &:#{$nth-selector}(#{$n}) {
         #{$measure}: _cell-size($list, $i, $gutter);
         margin-#{$position}: $margin;
       }

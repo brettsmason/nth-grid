@@ -1,6 +1,6 @@
-![logo](_media/icon.svg)
+<!-- ![logo](_media/icon.svg) -->
 
-# Nth Grid <small>0.1</small>
+# Nth Grid <small>2.0</small>
 
 > A simple to use yet powerful Flexbox based Sass grid mixin framework.
 

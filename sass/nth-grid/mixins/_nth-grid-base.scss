@@ -1,0 +1,12 @@
+/// Base grid properties
+/// This is a quicker way to add base flexbox properties to a container.
+///
+/// @param {Keyword} $direction [row] - Set the flex-direction of the container.
+/// @param {Keyword} $wrap [wrap] - Set the flex-wrap property of the container.
+@mixin nth-grid-base($direction: row, $wrap: wrap) {
+  $direction: if($direction != row, column, row);
+  $wrap: if($wrap != wrap, nowrap, wrap);
+
+  display: flex;
+  flex-flow: $direction $wrap;
+}
