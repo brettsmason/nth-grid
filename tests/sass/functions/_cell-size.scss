@@ -3,22 +3,22 @@
     // Cell Size Tests
     @include test('Returns a calc() size expression (single value)') {
 
-        @include assert-equal(-cell-size(3, 1, 1rem), calc(33.33333% - 0.66667rem));
+        @include assert-equal(-cell-size(3, 1, 1rem), calc(33.3% - 0.66667rem));
         
-        @include assert-equal(-cell-size(4, 2, 3rem), calc(25% - 2.25rem));
+        @include assert-equal(-cell-size(4, 2, 3rem), calc(24.975% - 2.25rem));
 
     }
 
     // Cell Size Tests
     @include test('Returns a calc() size expression (list)') {
 
-        @include assert-equal(-cell-size(2 3 4, 3, 1rem), calc(44.44444% - 0.66667rem));
+        @include assert-equal(-cell-size(2 3 4, 3, 1rem), calc(44.4% - 0.66667rem));
         
-        @include assert-equal(-cell-size(4 1, 2, 30px), calc(20% - 15px));
+        @include assert-equal(-cell-size(4 1, 2, 30px), calc(19.98% - 15px));
 
         @include assert-equal(-cell-size(200px 1 2, 1, 1rem), calc(200px - 0.66667rem));
         
-        @include assert-equal(-cell-size(2 3 300px 1, 2, 40px), calc(50% - 100px - 30px));
+        @include assert-equal(-cell-size(2 3 300px 1, 2, 40px), calc(49.95% - 100px - 30px));
 
     }
 
