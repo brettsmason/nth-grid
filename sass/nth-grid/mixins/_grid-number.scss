@@ -10,17 +10,17 @@
 
   @if unitless($layout) {
     @if $layout != 1 {
-      :#{$nth-selector}(n) {
+      &:#{$nth-selector}(n) {
         #{$measure}: _cell-size($layout, 1, $gutter);
         margin-#{$position}: $gutter;
       }
 
-      :#{$nth-selector}(#{$layout}n) {
+      &:#{$nth-selector}(#{$layout}n) {
         margin-#{$position}: 0;
       }
     }
     @else {
-      :#{$nth-selector}(n) {
+      &:#{$nth-selector}(n) {
         #{$measure}: 100%;
         margin-#{$position}: 0;
       }

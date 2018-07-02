@@ -35,7 +35,7 @@
       // Calculation for the calc() gutter subtraction
       $calc-gutter: _calc-gutter($gutter, $length);
 
-      :#{$nth-selector}(#{$n}) {
+      &:#{$nth-selector}(#{$n}) {
         #{$measure}: _cell-size($list, $i, $gutter);
         margin-#{$position}: $margin;
       }

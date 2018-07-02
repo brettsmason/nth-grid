@@ -23,7 +23,7 @@
     
     $n: if($loop, '#{$length}n + #{$i}', '#{$i}');
 
-    :#{$nth-selector}(#{$n}) {
+    &:#{$nth-selector}(#{$n}) {
       #{$measure}: _cell-size($layout, $i, $gutter);
       margin-#{$position}: $margin;
     }

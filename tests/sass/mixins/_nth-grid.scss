@@ -7,12 +7,12 @@
             }
 
             @include expect {
-                :nth-child(n) {
+                &:nth-child(n) {
                     width: calc(33.3% - 0.66667rem);
                     margin-right: 1rem;
                 }
 
-                :nth-child(3n) {
+                &:nth-child(3n) {
                     margin-right: 0;
                 }
             }
@@ -26,7 +26,7 @@
             }
 
             @include expect {
-                :nth-child(n) {
+                &:nth-child(n) {
                     width: 100%;
                     margin-right: 0;
                 }
@@ -41,22 +41,22 @@
             }
 
             @include expect {
-                :nth-child(4n + 1) {
+                &:nth-child(4n + 1) {
                     width: calc(9.99% - 1.5rem);
                     margin-right: 2rem;
                 }
 
-                :nth-child(4n + 2) {
+                &:nth-child(4n + 2) {
                     width: calc(19.98% - 1.5rem);
                     margin-right: 2rem;
                 }
 
-                :nth-child(4n + 3) {
+                &:nth-child(4n + 3) {
                     width: calc(29.97% - 1.5rem);
                     margin-right: 2rem;
                 }
 
-                :nth-child(4n + 4) {
+                &:nth-child(4n + 4) {
                     width: calc(39.96% - 1.5rem);
                     margin-right: 0;
                 }
@@ -71,27 +71,27 @@
             }
 
             @include expect {
-                :nth-child(5n + 1) {
+                &:nth-child(5n + 1) {
                     width: calc(250px - 32px);
                     margin-right: 40px;
                 }
 
-                :nth-child(5n + 2) {
+                &:nth-child(5n + 2) {
                     width: calc(33.3% - 83.33333px - 3.33333vw - 32px);
                     margin-right: 40px;
                 }
 
-                :nth-child(5n + 3) {
+                &:nth-child(5n + 3) {
                     width: calc(10vw - 32px);
                     margin-right: 40px;
                 }
 
-                :nth-child(5n + 4) {
+                &:nth-child(5n + 4) {
                     width: calc(49.95% - 83.33333px - 3.33333vw - 32px);
                     margin-right: 40px;
                 }
 
-                :nth-child(5n + 5) {
+                &:nth-child(5n + 5) {
                     width: calc(16.65% - 83.33333px - 3.33333vw - 32px);
                     margin-right: 0;
                 }
@@ -106,17 +106,17 @@
             }
 
             @include expect {
-                :nth-child(3n + 1) {
+                &:nth-child(3n + 1) {
                     width: 24.975%;
                     margin-right: 0;
                 }
 
-                :nth-child(3n + 2) {
+                &:nth-child(3n + 2) {
                     width: 49.95%;
                     margin-right: 0;
                 }
 
-                :nth-child(3n + 3) {
+                &:nth-child(3n + 3) {
                     width: 24.975%;
                     margin-right: 0;
                 }
@@ -131,22 +131,22 @@
             }
 
             @include expect {
-                :nth-child(4n + 1) {
+                &:nth-child(4n + 1) {
                     height: auto;
                     margin-bottom: 10px;
                 }
 
-                :nth-child(4n + 2) {
+                &:nth-child(4n + 2) {
                     height: auto;
                     margin-bottom: 10px;
                 }
 
-                :nth-child(4n + 3) {
+                &:nth-child(4n + 3) {
                     height: calc(99.9% - 7.5px);
                     margin-bottom: 10px;
                 }
 
-                :nth-child(4n + 4) {
+                &:nth-child(4n + 4) {
                     height: auto;
                     margin-bottom: 0;
                 }
