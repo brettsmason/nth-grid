@@ -13,10 +13,10 @@
 
 <h2>Grid - 2 columns below 800px, 4 columns above</h2>
 <pre>
-  @include grid-layout(2, 1rem);
+  @include nth-grid(2, 1rem);
 
   @media (min-width: 800px) {
-    @include grid-layout(4, 1rem);
+    @include nth-grid(4, 1rem);
   }
 </pre>
 <div class="grid-1">
@@ -44,10 +44,10 @@
 
 <h2>Grid - 3 columns below 800px (15px gutter), 250px, flexible, 150px above (30px gutter)</h2>
 <pre>
-  @include grid-layout(3, 15px);
+  @include nth-grid(3, 15px);
 
   @media (min-width: 800px) {
-    @include grid-layout(250px 1 150px, 30px);
+    @include nth-grid(250px 1 150px, 30px);
   }
 </pre>
 <div class="grid-2">
@@ -87,7 +87,7 @@
     2: 1
   );
 
-  @include grid-layout($small-grid, 1rem);
+  @include nth-grid($small-grid, 1rem);
 </pre>
 <div class="grid-3">
   <div class="grid-item">Item</div>

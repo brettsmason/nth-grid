@@ -38,15 +38,15 @@ pre {
 
 .grid-1 {
     @include grid(column, nowrap);
-    @include grid-layout(1, 1rem, $vertical: true);
+    @include nth-grid(1, 1rem, $vertical: true);
 }
 
 .grid-2 {
     @include grid(column, nowrap);
-    @include grid-layout(4, 1rem, $vertical: true);
+    @include nth-grid(4, 1rem, $vertical: true);
 }
 
 .grid-3 {
     @include grid(column, nowrap);
-    @include grid-layout(3, 0, $vertical: true);
+    @include nth-grid(3, 0, $vertical: true);
 }

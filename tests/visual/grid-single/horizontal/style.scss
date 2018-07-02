@@ -36,25 +36,25 @@ pre {
 
 .grid-1 {
     @include grid;
-    @include grid-layout(1, 1rem);
+    @include nth-grid(1, 1rem);
 }
 
 .grid-2 {
     @include grid;
-    @include grid-layout(4, 1rem);
+    @include nth-grid(4, 1rem);
 }
 
 .grid-3 {
     @include grid;
-    @include grid-layout(12, 1rem);
+    @include nth-grid(12, 1rem);
 }
 
 .grid-4 {
     @include grid;
-    @include grid-layout(2, 0);
+    @include nth-grid(2, 0);
 }
 
 .grid-5 {
     @include grid;
-    @include grid-layout(3, 0);
+    @include nth-grid(3, 0);
 }

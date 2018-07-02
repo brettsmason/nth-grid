@@ -11,11 +11,11 @@
 ```scss
 .example-1 {
     @include grid(column, nowrap);
-    @include grid-layout(0 0 6 0, 1rem, $vertical: true);
+    @include nth-grid(0 0 6 0, 1rem, $vertical: true);
 
     .grid-main {
         @include grid;
-        @include grid-layout(3 1);
+        @include nth-grid(3 1);
     }
 }
 ```

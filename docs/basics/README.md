@@ -26,10 +26,10 @@ Now we have the base properties we need to specify the column widths. Again we a
 ```scss
 .page {
     @include grid(row, wrap);
-    @include grid-layout(200px 2 1, 1rem);
+    @include nth-grid(200px 2 1, 1rem);
 }
 ```
 The above code sets the first column (`.sidebar-left`) to 200px and the 2nd column (`.content`) to twice the size of the 3rd column (`.sidebar-right`). Also included is a 1rem gutter between each column.
 
-`grid-layout()` supports a single value, a list of values or a map. A single value, eg `grid-layout(3, 1rem)` will output 3 equal columns with a 1rem gutter.
-[Read more about grid-layout() here.](/mixins/?id=grid-layout)
+`nth-grid()` supports a single value, a list of values or a map. A single value, eg `nth-grid(3, 1rem)` will output 3 equal columns with a 1rem gutter.
+[Read more about nth-grid() here.](/mixins/?id=nth-grid)

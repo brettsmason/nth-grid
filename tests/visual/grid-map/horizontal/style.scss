@@ -41,7 +41,7 @@ pre {
         3: 1 1
     );
     @include grid;
-    @include grid-layout($grid-1, 1rem);
+    @include nth-grid($grid-1, 1rem);
 }
 
 .grid-2 {
@@ -51,7 +51,7 @@ pre {
         3: 1
     );
     @include grid;
-    @include grid-layout($grid-2, 1rem);
+    @include nth-grid($grid-2, 1rem);
 }
 
 .grid-3 {
@@ -61,7 +61,7 @@ pre {
         3: 1 1
     );
     @include grid;
-    @include grid-layout($grid-3, 0);
+    @include nth-grid($grid-3, 0);
 }
 
 .grid-4 {
@@ -71,5 +71,5 @@ pre {
         3: 1 20vw 2
     );
     @include grid;
-    @include grid-layout($grid-4, 1rem);
+    @include nth-grid($grid-4, 1rem);
 }
