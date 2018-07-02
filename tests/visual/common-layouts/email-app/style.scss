@@ -20,8 +20,11 @@ body {
 
 .app {
     @include grid;
-    @include nth-grid(200px 400px 1, 1rem);
     height: 100vh;
+
+    > {
+        @include nth-grid(200px 400px 1, 1rem);
+    }
 }
 
 .nav {
@@ -33,7 +36,10 @@ body {
     background: #eee;
     overflow-y: hidden;
     @include grid;
-    @include nth-grid(50px 90vh, $vertical: true);
+
+    > {
+        @include nth-grid(50px 90vh, $vertical: true);
+    }
 }
 
 .preview {
@@ -51,8 +57,11 @@ body {
 
 .message {
     @include grid(column, nowrap);
-    @include nth-grid(90vw 10vh, $vertical: true);
     max-height: 100%;
+
+    > {
+        @include nth-grid(90vw 10vh, $vertical: true);
+    }
 }
 
 .details {

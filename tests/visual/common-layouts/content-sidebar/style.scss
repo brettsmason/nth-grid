@@ -25,15 +25,21 @@ div {
 
 .page {
     @include grid(column, nowrap);
-    @include nth-grid(0 0 6 0, 1rem, $vertical: true);
     height: 100vh;
     background: #eee;
     padding: 0;
+
+    > {
+        @include nth-grid(0 0 6 0, 1rem, $vertical: true);
+    }
 }
 
 .main {
     @include grid;
-    @include nth-grid(3 1);
     background: #eee;
     padding: 0;
+
+    > {
+        @include nth-grid(3 1);
+    }
 }
